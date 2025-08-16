@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- Apollo Hospital Logo Recreation -->
+  <defs>
+    <linearGradient id="apolloGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#007c9e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#005a73;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="25" fill="url(#apolloGradient)"/>
+  
+  <!-- Medical cross -->
+  <rect x="26" y="18" width="8" height="24" fill="white"/>
+  <rect x="18" y="26" width="24" height="8" fill="white"/>
+  
+  <!-- Apollo text -->
+  <text x="70" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#007c9e">APOLLO</text>
+  <text x="70" y="42" font-family="Arial, sans-serif" font-size="12" fill="#666">HOSPITALS</text>
+</svg>
