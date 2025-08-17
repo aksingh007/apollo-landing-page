@@ -1,31 +1,35 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { 
+import React from "react";
+import { useParams } from "react-router-dom";
+import {
   CheckCircle,
   ArrowRight,
   Star,
   Award,
   Shield,
-  Stethoscope
-} from 'lucide-react';
+  Stethoscope,
+} from "lucide-react";
 
-import Navbar from './Navbar';
-import FormSection from './FormSection';
-import DoctorsCarousel from './DoctorsCarousel';
-import FloatingButtons from './FloatingButtons';
-import TestimonialsSection from './TestimonialsSection';
-import { getDepartmentBySlug } from '../data/departments';
+import Navbar from "./Navbar";
+import FormSection from "./FormSection";
+import DoctorsCarousel from "./DoctorsCarousel";
+import FloatingButtons from "./FloatingButtons";
+import TestimonialsSection from "./TestimonialsSection";
+import { getDepartmentBySlug } from "../data/departments";
 
 const DepartmentPage = () => {
   const { department } = useParams<{ department: string }>();
-  const departmentData = getDepartmentBySlug(department || '');
+  const departmentData = getDepartmentBySlug(department || "");
 
   if (!departmentData) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Department Not Found</h1>
-          <p className="text-xl text-gray-600">The requested department page could not be found.</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Department Not Found
+          </h1>
+          <p className="text-xl text-gray-600">
+            The requested department page could not be found.
+          </p>
         </div>
       </div>
     );
@@ -34,10 +38,26 @@ const DepartmentPage = () => {
   const Icon = departmentData.icon;
 
   const amenities = [
-    { icon: Stethoscope, title: "Expert Specialists", description: "Board-certified specialists with international training" },
-    { icon: Award, title: "Advanced Technology", description: "State-of-the-art medical equipment and facilities" },
-    { icon: Shield, title: "Quality Care", description: "JCI & NABH accredited quality standards" },
-    { icon: CheckCircle, title: "Personalized Treatment", description: "Customized treatment plans for each patient" }
+    {
+      icon: Stethoscope,
+      title: "Expert Specialists",
+      description: "Board-certified specialists with international training",
+    },
+    {
+      icon: Award,
+      title: "Advanced Technology",
+      description: "State-of-the-art medical equipment and facilities",
+    },
+    {
+      icon: Shield,
+      title: "Quality Care",
+      description: "JCI & NABH accredited quality standards",
+    },
+    {
+      icon: CheckCircle,
+      title: "Personalized Treatment",
+      description: "Customized treatment plans for each patient",
+    },
   ];
 
   const processSteps = [
@@ -45,33 +65,33 @@ const DepartmentPage = () => {
       icon: CheckCircle,
       title: "Book Appointment",
       description: "Schedule your consultation with our medical experts",
-      color: "from-fortis-500 to-fortis-600"
+      color: "from-fortis-500 to-fortis-600",
     },
     {
       icon: Star,
       title: "Get Quote for Treatment",
       description: "Receive detailed treatment plan and cost estimate",
-      color: "from-secondary-500 to-secondary-600"
+      color: "from-secondary-500 to-secondary-600",
     },
     {
       icon: ArrowRight,
       title: "Visa/Travel Process",
       description: "We assist with visa applications and travel arrangements",
-      color: "from-accent-500 to-accent-600"
+      color: "from-accent-500 to-accent-600",
     },
     {
       icon: Award,
       title: "Treatment at Hospital",
       description: "Receive world-class treatment at our facility",
-      color: "from-fortis-600 to-secondary-600"
-    }
+      color: "from-fortis-600 to-secondary-600",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <FloatingButtons />
-      
+
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-fortis-900 via-fortis-800 to-secondary-700 text-white overflow-hidden pt-20">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -80,17 +100,19 @@ const DepartmentPage = () => {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center bg-fortis-600 bg-opacity-30 rounded-full px-4 py-2 mb-6">
                 <Icon className="w-5 h-5 mr-2" />
-                <span className="text-sm font-medium">{departmentData.name} Treatment in India</span>
+                <span className="text-sm font-medium">
+                  {departmentData.name} Treatment in India
+                </span>
               </div>
-              
+
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 {departmentData.heroTitle}
               </h1>
-              
+
               <p className="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">
                 {departmentData.description}
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="flex items-center bg-white bg-opacity-10 rounded-lg px-4 py-2">
                   <Award className="w-5 h-5 mr-2 text-secondary-300" />
@@ -102,9 +124,9 @@ const DepartmentPage = () => {
                 </div>
               </div>
             </div>
-            
+
             <div>
-              <FormSection 
+              <FormSection
                 id="contact-form"
                 title={`Book Your ${departmentData.name} Consultation`}
                 subtitle="Get personalized treatment plan from our experts"
@@ -114,8 +136,8 @@ const DepartmentPage = () => {
           </div>
         </div>
       </div>
-      
-    {/* Hospital Infrastructure Section */}
+
+      {/* Hospital Infrastructure Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -124,10 +146,11 @@ const DepartmentPage = () => {
                 State-of-the-Art Hospital in India
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Our world-class facility combines cutting-edge medical technology with 
-                patient-centered design to provide the best possible healthcare experience.
+                Our world-class facility combines cutting-edge medical
+                technology with patient-centered design to provide the best
+                possible healthcare experience.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-6">
                 {amenities.map((amenity, index) => (
                   <div key={index} className="flex items-start space-x-3">
@@ -135,18 +158,22 @@ const DepartmentPage = () => {
                       <amenity.icon className="w-5 h-5 text-fortis-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{amenity.title}</h3>
-                      <p className="text-sm text-gray-600">{amenity.description}</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        {amenity.title}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {amenity.description}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="aspect-w-16 aspect-h-12 rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/facility_photo/photo/8fb52a14-0f47-446d-bfee-c6b4fdb5166c/file.webp"
+                  src="https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/facility_photo/photo/3677ebcc-f7d7-4c29-9220-00948c5875af/file.webp"
                   alt="Apollo Hospital Infrastructure"
                   className="w-full h-full object-cover"
                 />
@@ -162,7 +189,6 @@ const DepartmentPage = () => {
         </div>
       </section>
 
-
       {/* Department Specific Section */}
       <section className="py-20 bg-gradient-to-br from-secondary-900 to-fortis-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -174,7 +200,7 @@ const DepartmentPage = () => {
               <p className="text-xl text-gray-200 mb-8 leading-relaxed">
                 {departmentData.description}
               </p>
-              
+
               <div className="space-y-4">
                 {departmentData.features.map((feature, index) => (
                   <div key={index} className="flex items-center">
@@ -184,21 +210,30 @@ const DepartmentPage = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
               <div className="text-center mb-6">
                 <Icon className="w-16 h-16 mx-auto text-secondary-300 mb-4" />
-                <h3 className="text-2xl font-bold mb-2">{departmentData.name} Excellence</h3>
-                <p className="text-gray-200">Comprehensive treatment programs tailored to each patient's needs</p>
+                <h3 className="text-2xl font-bold mb-2">
+                  {departmentData.name} Excellence
+                </h3>
+                <p className="text-gray-200">
+                  Comprehensive treatment programs tailored to each patient's
+                  needs
+                </p>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                  <div className="text-2xl font-bold text-secondary-300">{departmentData.stats.successRate}</div>
+                  <div className="text-2xl font-bold text-secondary-300">
+                    {departmentData.stats.successRate}
+                  </div>
                   <div className="text-sm text-gray-200">Success Rate</div>
                 </div>
                 <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                  <div className="text-2xl font-bold text-secondary-300">{departmentData.stats.patientsCount}</div>
+                  <div className="text-2xl font-bold text-secondary-300">
+                    {departmentData.stats.patientsCount}
+                  </div>
                   <div className="text-sm text-gray-200">Patients Treated</div>
                 </div>
               </div>
@@ -211,20 +246,30 @@ const DepartmentPage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our {departmentData.name} Treatments</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Our {departmentData.name} Treatments
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive range of treatments and procedures available
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {departmentData.treatments.map((treatment, index) => (
-              <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105">
+              <div
+                key={index}
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105"
+              >
                 <div className="w-12 h-12 bg-fortis-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary-600 transition-colors">
                   <CheckCircle className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{treatment}</h3>
-                <p className="text-gray-600">Advanced {treatment.toLowerCase()} with international quality standards</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {treatment}
+                </h3>
+                <p className="text-gray-600">
+                  Advanced {treatment.toLowerCase()} with international quality
+                  standards
+                </p>
               </div>
             ))}
           </div>
@@ -235,15 +280,21 @@ const DepartmentPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Our {departmentData.name} Department?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Our {departmentData.name} Department?
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Excellence in {departmentData.name.toLowerCase()} care with international standards
+              Excellence in {departmentData.name.toLowerCase()} care with
+              international standards
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             {departmentData.whyChoose.map((reason, index) => (
-              <div key={index} className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg">
+              <div
+                key={index}
+                className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg"
+              >
                 <div className="w-8 h-8 bg-fortis-600 rounded-full flex items-center justify-center flex-shrink-0">
                   <CheckCircle className="w-5 h-5 text-white" />
                 </div>
@@ -260,19 +311,26 @@ const DepartmentPage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{departmentData.name} Facilities</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {departmentData.name} Facilities
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               State-of-the-art facilities designed for optimal patient care
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {amenities.map((amenity, index) => (
-              <div key={index} className="text-center p-6 rounded-2xl bg-gradient-to-br from-fortis-50 to-secondary-50 border border-gray-100 hover:shadow-lg transition-all duration-300">
+              <div
+                key={index}
+                className="text-center p-6 rounded-2xl bg-gradient-to-br from-fortis-50 to-secondary-50 border border-gray-100 hover:shadow-lg transition-all duration-300"
+              >
                 <div className="w-16 h-16 bg-fortis-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <amenity.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{amenity.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {amenity.title}
+                </h3>
                 <p className="text-gray-600 text-sm">{amenity.description}</p>
               </div>
             ))}
@@ -284,12 +342,15 @@ const DepartmentPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Top Doctors at Apollo</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Top Doctors at Apollo
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet our renowned {departmentData.name.toLowerCase()} specialists with decades of experience
+              Meet our renowned {departmentData.name.toLowerCase()} specialists
+              with decades of experience
             </p>
           </div>
-          
+
           <DoctorsCarousel />
         </div>
       </section>
@@ -298,37 +359,46 @@ const DepartmentPage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              How It Works
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Simple 4-step process to get world-class {departmentData.name.toLowerCase()} treatment
+              Simple 4-step process to get world-class{" "}
+              {departmentData.name.toLowerCase()} treatment
             </p>
           </div>
-          
+
           <div className="relative">
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-fortis-200 via-secondary-200 to-accent-200 transform -translate-y-1/2 z-0"></div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
               {processSteps.map((step, index) => (
                 <div key={index} className="relative">
                   <div className="bg-white p-8 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-500 border border-gray-100 group hover:scale-105 relative overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                    
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    ></div>
+
                     <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-fortis-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                       {index + 1}
                     </div>
-                    
-                    <div className={`w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+
+                    <div
+                      className={`w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                    >
                       <step.icon className="w-10 h-10 text-white" />
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-fortis-700 transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                    
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+
                     <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-fortis-200 transition-colors duration-300"></div>
                   </div>
-                
+
                   {index < processSteps.length - 1 && (
                     <div className="hidden lg:flex absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
                       <div className="w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-fortis-200">
@@ -354,18 +424,19 @@ const DepartmentPage = () => {
               <Star className="w-5 h-5 mr-2 text-yellow-300" />
               <span className="font-semibold">Limited Time Offer</span>
             </div>
-            
+
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Save 20% on {departmentData.name} Treatments
             </h2>
             <p className="text-xl text-orange-100 max-w-3xl mx-auto mb-8">
-              Take advantage of our special offer for international patients seeking {departmentData.name.toLowerCase()} treatment. 
-              Book your consultation today and save on world-class medical care.
+              Take advantage of our special offer for international patients
+              seeking {departmentData.name.toLowerCase()} treatment. Book your
+              consultation today and save on world-class medical care.
             </p>
           </div>
-          
+
           <div className="max-w-md mx-auto">
-            <FormSection 
+            <FormSection
               title="Claim Your 20% Discount"
               subtitle={`Limited time offer for ${departmentData.name.toLowerCase()} patients`}
               className="bg-white text-gray-900"
@@ -381,26 +452,31 @@ const DepartmentPage = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Apollo Hospital</h3>
               <p className="text-gray-400 mb-4">
-                World-class {departmentData.name.toLowerCase()} care with international standards, 
-                advanced technology, and compassionate treatment.
+                World-class {departmentData.name.toLowerCase()} care with
+                international standards, advanced technology, and compassionate
+                treatment.
               </p>
             </div>
-            
+
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
+              <h4 className="text-lg font-semibold mb-4">
+                Contact Information
+              </h4>
               <div className="space-y-2">
                 <div className="flex items-center">
                   <span className="text-gray-300">Delhi, India</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-gray-300">+91 11 7179 0000</span>
+                  <span className="text-gray-300">+91 9599 8181 71</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-gray-300">info@apollohospitals.com</span>
+                  <span className="text-gray-300">
+                    info@apollohospitals.com
+                  </span>
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-semibold mb-4">Accreditations</h4>
               <div className="space-y-2">
@@ -415,10 +491,12 @@ const DepartmentPage = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-400">
-              © 2025 Apollo Hospital. All rights reserved. | Providing world-class {departmentData.name.toLowerCase()} care to international patients.
+              © 2025 Apollo Hospital. All rights reserved. | Providing
+              world-class {departmentData.name.toLowerCase()} care to
+              international patients.
             </p>
           </div>
         </div>

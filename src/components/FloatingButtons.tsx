@@ -1,15 +1,18 @@
-import React from 'react';
-import { MessageCircle, Phone } from 'lucide-react';
+import React from "react";
+import { MessageCircle, Phone } from "lucide-react";
 
 const FloatingButtons = () => {
   const handleWhatsApp = () => {
-    window.open('https://wa.me/911171790000', '_blank');
+    window.open(
+      "https://api.whatsapp.com/send?phone=919599818171&text=Hello,%20I%20need%20treatment%20plan%20for:",
+      "_blank"
+    );
   };
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-form');
+    const contactSection = document.getElementById("contact-form");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -21,7 +24,7 @@ const FloatingButtons = () => {
       >
         <MessageCircle className="w-6 h-6" />
       </button>
-      
+
       <button
         onClick={scrollToContact}
         className="w-14 h-14 bg-fortis-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"

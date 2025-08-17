@@ -1,16 +1,16 @@
-import React from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Heart, 
-  Brain, 
-  Bone, 
-  Eye, 
-  Activity, 
-  Users, 
-  Award, 
-  Shield, 
+import React from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Heart,
+  Brain,
+  Bone,
+  Eye,
+  Activity,
+  Users,
+  Award,
+  Shield,
   CheckCircle,
   ArrowRight,
   Star,
@@ -25,66 +25,118 @@ import {
   Car,
   Coffee,
   Clock,
-  UserCheck
-} from 'lucide-react';
+  UserCheck,
+} from "lucide-react";
 
-import Navbar from './Navbar';
-import FormSection from './FormSection';
-import DoctorsCarousel from './DoctorsCarousel';
-import FloatingButtons from './FloatingButtons';
-import TestimonialsSection from './TestimonialsSection';
+import Navbar from "./Navbar";
+import FormSection from "./FormSection";
+import DoctorsCarousel from "./DoctorsCarousel";
+import FloatingButtons from "./FloatingButtons";
+import TestimonialsSection from "./TestimonialsSection";
 
 function HomePage() {
   const specialties = [
-    { icon: Heart, name: "Cardiology", description: "World-class heart care with advanced procedures" },
-    { icon: Brain, name: "Neurology", description: "Comprehensive brain and spine treatments" },
-    { icon: Bone, name: "Orthopedics", description: "Robot-assisted joint replacement surgery" },
-    { icon: Eye, name: "Ophthalmology", description: "Advanced eye care and vision correction" },
-    { icon: Activity, name: "Oncology", description: "Comprehensive cancer treatment programs" },
-    { icon: Users, name: "Pediatrics", description: "Specialized care for children and infants" }
+    {
+      icon: Heart,
+      name: "Cardiology",
+      description: "World-class heart care with advanced procedures",
+    },
+    {
+      icon: Brain,
+      name: "Neurology",
+      description: "Comprehensive brain and spine treatments",
+    },
+    {
+      icon: Bone,
+      name: "Orthopedics",
+      description: "Robot-assisted joint replacement surgery",
+    },
+    {
+      icon: Eye,
+      name: "Ophthalmology",
+      description: "Advanced eye care and vision correction",
+    },
+    {
+      icon: Activity,
+      name: "Oncology",
+      description: "Comprehensive cancer treatment programs",
+    },
+    {
+      icon: Users,
+      name: "Pediatrics",
+      description: "Specialized care for children and infants",
+    },
   ];
 
   const amenities = [
-    { icon: Bed, title: "500+ Beds", description: "Comfortable private rooms with modern amenities" },
-    { icon: Wifi, title: "Online Consultation", description: "Connect for online consultation with Top Doctors" },
-    { icon: Car, title: "Free Transfer", description: "Free Airport Pick up and drop." },
-    { icon: Coffee, title: "Muliple Food Options", description: "Multi-cuisine restaurant and coffee shop" },
-    { icon: Clock, title: "24/7 Emergency", description: "Round-the-clock emergency medical services" },
-    { icon: UserCheck, title: "Patient Care", description: "Dedicated patient care coordinators" }
+    {
+      icon: Bed,
+      title: "500+ Beds",
+      description: "Comfortable private rooms with modern amenities",
+    },
+    {
+      icon: Wifi,
+      title: "Online Consultation",
+      description: "Connect for online consultation with Top Doctors",
+    },
+    {
+      icon: Car,
+      title: "Free Transfer",
+      description: "Free Airport Pick up and drop.",
+    },
+    {
+      icon: Coffee,
+      title: "Muliple Food Options",
+      description: "Multi-cuisine restaurant and coffee shop",
+    },
+    {
+      icon: Clock,
+      title: "24/7 Emergency",
+      description: "Round-the-clock emergency medical services",
+    },
+    {
+      icon: UserCheck,
+      title: "Patient Care",
+      description: "Dedicated patient care coordinators",
+    },
   ];
 
   const processSteps = [
     {
       icon: Calendar,
       title: "Book Appointment",
-      description: "Schedule your consultation with our medical experts through our easy online booking system",
-      color: "from-fortis-500 to-fortis-600"
+      description:
+        "Schedule your consultation with our medical experts through our easy online booking system",
+      color: "from-fortis-500 to-fortis-600",
     },
     {
       icon: CreditCard,
       title: "Get Quote for Treatment",
-      description: "Receive detailed treatment plan and transparent cost estimate within 24 hours",
-      color: "from-secondary-500 to-secondary-600"
+      description:
+        "Receive detailed treatment plan and transparent cost estimate within 24 hours",
+      color: "from-secondary-500 to-secondary-600",
     },
     {
       icon: Plane,
       title: "Visa/Travel Process",
-      description: "We assist with visa applications, travel arrangements, and airport transfers",
-      color: "from-accent-500 to-accent-600"
+      description:
+        "We assist with visa applications, travel arrangements, and airport transfers",
+      color: "from-accent-500 to-accent-600",
     },
     {
       icon: Building2,
       title: "Treatment at Hospital",
-      description: "Receive world-class treatment at our state-of-the-art facility with personalized care",
-      color: "from-fortis-600 to-secondary-600"
-    }
+      description:
+        "Receive world-class treatment at our state-of-the-art facility with personalized care",
+      color: "from-fortis-600 to-secondary-600",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <FloatingButtons />
-      
+
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-fortis-900 via-fortis-800 to-secondary-700 text-white overflow-hidden pt-20">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -93,18 +145,22 @@ function HomePage() {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center bg-fortis-600 bg-opacity-30 rounded-full px-4 py-2 mb-6">
                 <Globe className="w-5 h-5 mr-2" />
-                <span className="text-sm font-medium">Medical Treatment in India</span>
+                <span className="text-sm font-medium">
+                  Medical Treatment in India
+                </span>
               </div>
-              
+
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                World-Class Healthcare at 
+                World-Class Healthcare at
                 <span className="text-secondary-300"> Apollo Hospital</span>
               </h1>
-              
+
               <p className="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">
-                At Apollo Hospital Delhi, we provide world-class healthcare services, supported by state-of-the-art medical technologies and a team of dedicated healthcare professionals.
+                At Apollo Hospital Delhi, we provide world-class healthcare
+                services, supported by state-of-the-art medical technologies and
+                a team of dedicated healthcare professionals.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-8">
                 <div className="flex items-center bg-white bg-opacity-10 rounded-lg px-4 py-2">
                   <Award className="w-5 h-5 mr-2 text-secondary-300" />
@@ -116,9 +172,9 @@ function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div>
-              <FormSection 
+              <FormSection
                 id="contact-form"
                 title="Book Your Consultation"
                 subtitle="Get personalized treatment plan from our experts"
@@ -138,9 +194,11 @@ function HomePage() {
                 State-of-the-Art Hospital in India
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Whether you are seeking preventive care or advanced medical treatments, our specialised centres of excellence ensure top-tier care across multiple specialities.
+                Whether you are seeking preventive care or advanced medical
+                treatments, our specialised centres of excellence ensure
+                top-tier care across multiple specialities.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-6">
                 {amenities.map((amenity, index) => (
                   <div key={index} className="flex items-start space-x-3">
@@ -148,18 +206,22 @@ function HomePage() {
                       <amenity.icon className="w-5 h-5 text-fortis-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{amenity.title}</h3>
-                      <p className="text-sm text-gray-600">{amenity.description}</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        {amenity.title}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {amenity.description}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="aspect-w-16 aspect-h-12 rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/facility_photo/photo/8fb52a14-0f47-446d-bfee-c6b4fdb5166c/file.webp"
+                  src="https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/facility_photo/photo/3677ebcc-f7d7-4c29-9220-00948c5875af/file.webp"
                   alt="Apollo Hospital Infrastructure"
                   className="w-full h-full object-cover"
                 />
@@ -184,11 +246,11 @@ function HomePage() {
                 Advanced Cancer Treatment at Apollo
               </h2>
               <p className="text-xl text-gray-200 mb-8 leading-relaxed">
-                Our comprehensive cancer care program combines cutting-edge technology, 
-                personalized treatment plans, and compassionate care to provide the best 
-                possible outcomes for our patients.
+                Our comprehensive cancer care program combines cutting-edge
+                technology, personalized treatment plans, and compassionate care
+                to provide the best possible outcomes for our patients.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center">
                   <CheckCircle className="w-6 h-6 text-secondary-300 mr-3" />
@@ -208,21 +270,30 @@ function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
               <div className="text-center mb-6">
                 <Activity className="w-16 h-16 mx-auto text-secondary-300 mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Cancer Care Excellence</h3>
-                <p className="text-gray-200">Comprehensive treatment programs tailored to each patient's needs</p>
+                <h3 className="text-2xl font-bold mb-2">
+                  Cancer Care Excellence
+                </h3>
+                <p className="text-gray-200">
+                  Comprehensive treatment programs tailored to each patient's
+                  needs
+                </p>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                  <div className="text-2xl font-bold text-secondary-300">95%</div>
+                  <div className="text-2xl font-bold text-secondary-300">
+                    95%
+                  </div>
                   <div className="text-sm text-gray-200">Success Rate</div>
                 </div>
                 <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                  <div className="text-2xl font-bold text-secondary-300">1000+</div>
+                  <div className="text-2xl font-bold text-secondary-300">
+                    1000+
+                  </div>
                   <div className="text-sm text-gray-200">Patients Treated</div>
                 </div>
               </div>
@@ -235,40 +306,51 @@ function HomePage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Apollo Hospital?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Apollo Hospital?
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Trusted by patients worldwide for exceptional healthcare services
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-fortis-50 to-secondary-50 border border-gray-100 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-fortis-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Ranked Excellence</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Ranked Excellence
+              </h3>
               <p className="text-gray-600 mb-4">
-                Ranked among India's top hospitals with over 10,000 beds across 70+ hospitals
+                Ranked among India's top hospitals with over 10,000 beds across
+                70+ hospitals
               </p>
             </div>
-            
+
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-secondary-50 to-fortis-50 border border-gray-100 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-secondary-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Stethoscope className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Advanced Technology</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Advanced Technology
+              </h3>
               <p className="text-gray-600 mb-4">
-                Pioneering healthcare with cutting-edge medical technology and innovative treatment protocols
+                Pioneering healthcare with cutting-edge medical technology and
+                innovative treatment protocols
               </p>
             </div>
-            
+
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-accent-50 to-secondary-50 border border-gray-100 hover:shadow-lg transition-all duration-300">
               <div className="w-16 h-16 bg-accent-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">International Standards</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                International Standards
+              </h3>
               <p className="text-gray-600 mb-4">
-                JCI Accredited Hospital ensuring world-class quality and safety standards across all specialties
+                JCI Accredited Hospital ensuring world-class quality and safety
+                standards across all specialties
               </p>
             </div>
           </div>
@@ -279,19 +361,26 @@ function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Medical Specialties</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Our Medical Specialties
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive healthcare services across multiple specialties
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {specialties.map((specialty, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105">
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105"
+              >
                 <div className="w-12 h-12 bg-fortis-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary-600 transition-colors">
                   <specialty.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{specialty.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {specialty.name}
+                </h3>
                 <p className="text-gray-600">{specialty.description}</p>
               </div>
             ))}
@@ -303,12 +392,14 @@ function HomePage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Top Doctors at Apollo</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Top Doctors at Apollo
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Meet our renowned medical experts with decades of experience
             </p>
           </div>
-          
+
           <DoctorsCarousel />
         </div>
       </section>
@@ -317,50 +408,58 @@ function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              How It Works
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Simple 4-step process to get world-class medical treatment
             </p>
           </div>
-          
+
           <div className="relative">
             {/* Connection Line */}
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-fortis-200 via-secondary-200 to-accent-200 transform -translate-y-1/2 z-0"></div>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
               {processSteps.map((step, index) => (
                 <div key={index} className="relative">
-                <div className="bg-white p-8 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-500 border border-gray-100 group hover:scale-105 relative overflow-hidden">
-                  {/* Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                  
-                  {/* Step Number */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-fortis-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                    {index + 1}
-                  </div>
-                  
-                  {/* Icon */}
-                  <div className={`w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <step.icon className="w-10 h-10 text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-fortis-700 transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                  
-                  {/* Hover Effect Border */}
-                  <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-fortis-200 transition-colors duration-300"></div>
+                  <div className="bg-white p-8 rounded-3xl shadow-xl text-center hover:shadow-2xl transition-all duration-500 border border-gray-100 group hover:scale-105 relative overflow-hidden">
+                    {/* Background Gradient */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    ></div>
+
+                    {/* Step Number */}
+                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-fortis-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      {index + 1}
                     </div>
-                
-                {/* Arrow for larger screens */}
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:flex absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
-                    <div className="w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-fortis-200">
-                      <ArrowRight className="w-4 h-4 text-fortis-600" />
+
+                    {/* Icon */}
+                    <div
+                      className={`w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                    >
+                      <step.icon className="w-10 h-10 text-white" />
                     </div>
+
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-fortis-700 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+
+                    {/* Hover Effect Border */}
+                    <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-fortis-200 transition-colors duration-300"></div>
                   </div>
-                )}
+
+                  {/* Arrow for larger screens */}
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:flex absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+                      <div className="w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-fortis-200">
+                        <ArrowRight className="w-4 h-4 text-fortis-600" />
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -379,18 +478,19 @@ function HomePage() {
               <Star className="w-5 h-5 mr-2 text-yellow-300" />
               <span className="font-semibold">Limited Time Offer</span>
             </div>
-            
+
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Save 20% on All Treatments
             </h2>
             <p className="text-xl text-orange-100 max-w-3xl mx-auto mb-8">
-              Take advantage of our special offer for international patients. 
-              Book your consultation today and save on world-class medical treatment.
+              Take advantage of our special offer for international patients.
+              Book your consultation today and save on world-class medical
+              treatment.
             </p>
           </div>
-          
+
           <div className="max-w-md mx-auto">
-            <FormSection 
+            <FormSection
               title="Claim Your 20% Discount"
               subtitle="Limited time offer for new patients"
               className="bg-white text-gray-900"
@@ -406,13 +506,15 @@ function HomePage() {
             <div>
               <h3 className="text-2xl font-bold mb-4">Apollo Hospital</h3>
               <p className="text-gray-400 mb-4">
-                World-class healthcare with international standards, 
-                advanced technology, and compassionate care.
+                World-class healthcare with international standards, advanced
+                technology, and compassionate care.
               </p>
             </div>
-            
+
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
+              <h4 className="text-lg font-semibold mb-4">
+                Contact Information
+              </h4>
               <div className="space-y-2">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 mr-3 text-gray-400" />
@@ -420,15 +522,17 @@ function HomePage() {
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 mr-3 text-gray-400" />
-                  <span className="text-gray-300">+91 11 7179 0000</span>
+                  <span className="text-gray-300">+91 9599 8181 71</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 mr-3 text-gray-400" />
-                  <span className="text-gray-300">info@apollohospitals.com</span>
+                  <span className="text-gray-300">
+                    info@apollohospitals.com
+                  </span>
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-semibold mb-4">Accreditations</h4>
               <div className="space-y-2">
@@ -443,10 +547,11 @@ function HomePage() {
               </div>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-400">
-              © 2025 Apollo Hospital. All rights reserved. | Providing world-class healthcare to international patients.
+              © 2025 Apollo Hospital. All rights reserved. | Providing
+              world-class healthcare to international patients.
             </p>
           </div>
         </div>
