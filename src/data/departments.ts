@@ -4,7 +4,7 @@ export interface Department {
   id: string;
   name: string;
   title: string;
-  icon: any;
+  icon: unknown;
   heroTitle: string;
   description: string;
   features: string[];
