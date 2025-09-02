@@ -152,10 +152,6 @@ const ErrorModal: React.FC<ErrorModalProps> = ({ isOpen, onClose, email }) => {
             We have an account existing with the email {email}.
           </p>
 
-          <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 mb-3">
-            → Login & send medical query
-          </button>
-
           <button
             onClick={handleWhatsApp}
             className="w-full border-2 border-green-500 text-green-600 py-3 px-6 rounded-lg hover:bg-green-50 transition-all duration-300 flex items-center justify-center"
@@ -374,7 +370,7 @@ const FormSection: React.FC<FormSectionProps> = ({
             />
           </div>
 
-          <div>
+          <div className="flex w-full border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-fortis-500 transition-all px-4 py-3">
             <PhoneInput
               placeholder="Phone Number"
               value={formData.phone}
@@ -389,8 +385,7 @@ const FormSection: React.FC<FormSectionProps> = ({
                 "--PhoneInput-color--focus": "#0da854",
               }}
               numberInputProps={{
-                className:
-                  "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fortis-500 focus:border-transparent transition-all pl-16",
+                className: "w-full focus:outline-none",
               }}
             />
           </div>

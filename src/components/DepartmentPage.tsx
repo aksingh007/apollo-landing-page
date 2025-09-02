@@ -14,6 +14,8 @@ import FormSection from "./FormSection";
 import DoctorsCarousel from "./DoctorsCarousel";
 import FloatingButtons from "./FloatingButtons";
 import TestimonialsSection from "./TestimonialsSection";
+import FAQSection from "./FAQSection";
+import { departmentFAQs } from "../data/FAQ";
 import { getDepartmentBySlug } from "../data/departments";
 
 const DepartmentPage = () => {
@@ -379,7 +381,7 @@ const DepartmentPage = () => {
                       className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                     ></div>
 
-                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-fortis-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    <div className="absolute -top-1 -left-1 w-12 h-12 bg-gradient-to-br from-fortis-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                       {index + 1}
                     </div>
 
@@ -444,7 +446,12 @@ const DepartmentPage = () => {
           </div>
         </div>
       </section>
-
+      {/* FAQ Section */}
+      <FAQSection
+        title={`${departmentData.name} FAQs`}
+        subtitle={`Common questions about ${departmentData.name.toLowerCase()} treatment at Apollo Hospital`}
+        faqs={departmentFAQs[departmentData.id] || []}
+      />
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

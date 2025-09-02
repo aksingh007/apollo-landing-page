@@ -33,6 +33,8 @@ import FormSection from "./FormSection";
 import DoctorsCarousel from "./DoctorsCarousel";
 import FloatingButtons from "./FloatingButtons";
 import TestimonialsSection from "./TestimonialsSection";
+import FAQSection from "./FAQSection";
+import { generalFAQs } from "../data/FAQ";
 
 function HomePage() {
   const specialties = [
@@ -430,7 +432,7 @@ function HomePage() {
                     ></div>
 
                     {/* Step Number */}
-                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-fortis-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    <div className="absolute -top-1 -left-1 w-12 h-12 bg-gradient-to-br from-fortis-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                       {index + 1}
                     </div>
 
@@ -498,6 +500,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection faqs={generalFAQs} />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">

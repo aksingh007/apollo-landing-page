@@ -23,7 +23,7 @@ export const departments: Department[] = [
     title: 'Cardiology Treatment',
     icon: Heart,
     heroTitle: 'Advanced Cardiology Treatment at Apollo Hospital',
-    description: 'Our world-class cardiology department offers comprehensive heart care with cutting-edge technology, minimally invasive procedures, and personalized treatment plans for optimal cardiac health.',
+    description: 'Best hospital for CABG in India with comprehensive heart care with cutting-edge technology, minimally invasive procedures, and personalized treatment plans for optimal cardiac health.',
     features: [
       'Advanced cardiac catheterization',
       'Minimally invasive heart surgery',
@@ -36,13 +36,13 @@ export const departments: Department[] = [
     },
     treatments: [
       'Coronary Angioplasty',
-      'Bypass Surgery',
-      'Valve Replacement',
+      'Heart Bypass Surgery',
+      'Double Valve Replacement',
       'Pacemaker Implantation',
-      'Heart Transplant'
+      'Heart Transplant in India'
     ],
     whyChoose: [
-      'Leading cardiac surgeons with 20+ years experience',
+      'Best CABG surgeons in India with 20+ years experience',
       'State-of-the-art cardiac catheterization labs',
       'Comprehensive cardiac rehabilitation programs',
       'International quality standards and protocols'
@@ -54,9 +54,9 @@ export const departments: Department[] = [
     title: 'Neurology Treatment',
     icon: Brain,
     heroTitle: 'Expert Neurology Treatment at Apollo Hospital',
-    description: 'Our neurology department provides comprehensive care for brain, spine, and nervous system disorders using advanced diagnostic tools and innovative treatment approaches.',
+    description: 'The best neuro rehabilitation centre in India with comprehensive care for brain, spine, and nervous system disorders using advanced diagnostic tools and innovative treatment approaches.',
     features: [
-      'Advanced neuroimaging and diagnostics',
+      'Advanced Cyberknife treatment',
       'Minimally invasive neurosurgery',
       'Stroke care and rehabilitation',
       'Epilepsy management programs'
@@ -66,30 +66,30 @@ export const departments: Department[] = [
       patientsCount: '3500+'
     },
     treatments: [
-      'Brain Tumor Surgery',
+      'Brain Tumor Treatment',
       'Stroke Treatment',
       'Epilepsy Surgery',
       'Deep Brain Stimulation',
       'Spinal Cord Surgery'
     ],
     whyChoose: [
-      'Renowned neurologists and neurosurgeons',
+      'Best neurosurgeon in India',
       'Advanced neuro-navigation systems',
       'Comprehensive stroke unit',
       'Multidisciplinary approach to neurological care'
     ]
   },
-  {
+{
     id: 'orthopedic-treatment',
     name: 'Orthopedic',
     title: 'Orthopedic Treatment',
     icon: Bone,
-    heroTitle: 'Advanced Orthopedic Treatment at Apollo Hospital',
-    description: 'Comprehensive orthopedic care with cutting-edge technology, minimally invasive procedures, and world-class joint replacement surgery.',
+    heroTitle: 'Advanced Joint Replacement in India at Apollo Hospital',
+    description: 'India\'s first robotic knee replacement surgery center offering comprehensive orthopedic care with cutting-edge technology and minimally invasive procedures.',
     features: [
-      'Advanced joint replacement surgery',
+      'Bilateral knee replacement',
       'Minimally invasive spine surgery',
-      'Sports medicine and rehabilitation',
+      'ACL reconstruction surgery',
       'Advanced trauma care'
     ],
     stats: {
@@ -104,8 +104,8 @@ export const departments: Department[] = [
       'Fracture Management'
     ],
     whyChoose: [
-      'Advanced joint replacement techniques',
-      'Internationally trained orthopedic surgeons',
+      'India\'s first robot-assisted joint replacement',
+      'Internationaly-trained best doctor for knee replacement surgery',
       'Advanced rehabilitation facilities',
       'Minimally invasive surgical techniques'
     ]
@@ -115,11 +115,11 @@ export const departments: Department[] = [
     name: 'Oncology',
     title: 'Cancer Treatment',
     icon: Activity,
-    heroTitle: 'Comprehensive Cancer Treatment at Apollo Hospital',
-    description: 'Our comprehensive cancer care program combines cutting-edge technology, personalized treatment plans, and compassionate care to provide the best possible outcomes for cancer patients.',
+    heroTitle: 'Comprehensive Cancer Treatment in India at Apollo Hospital',
+    description: 'No. 1 Cancer Treatment Hospital in India - our comprehensive cancer care program combines cutting-edge technology, personalized treatment plans, and compassionate care to provide the best possible outcomes for cancer patients.',
     features: [
-      'Multidisciplinary team approach',
-      'Latest chemotherapy and radiation therapy',
+      'Best doctor for cancer treatment in India',
+      'Latest chemotherapy and radiation therapy for cancer treatment',
       'Minimally invasive surgical procedures',
       'Comprehensive support services'
     ],
@@ -128,15 +128,15 @@ export const departments: Department[] = [
       patientsCount: '1000+'
     },
     treatments: [
-      'Chemotherapy',
+      'Chemotherapy for bladder cancer treatment',
       'Radiation Therapy',
-      'Surgical Oncology',
-      'Immunotherapy',
+      'Surgical Oncology for breast cancer treatment',
+      'Immunotherapy for prostate cancer treatment',
       'Bone Marrow Transplant'
     ],
     whyChoose: [
-      'Multidisciplinary cancer care team',
-      'Latest cancer treatment technologies',
+      'Best hospital for cancer treatment with expert multidisciplinary team',
+      'Latest cancer treatment technologies for ovarian cancer treatment',
       'Personalized treatment protocols',
       'Comprehensive patient support services'
     ]
@@ -146,11 +146,11 @@ export const departments: Department[] = [
     name: 'Spine Surgery',
     title: 'Spine Surgery',
     icon: Spine,
-    heroTitle: 'Advanced Spine Surgery at Apollo Hospital',
-    description: 'Our spine surgery department offers comprehensive treatment for spinal disorders using minimally invasive techniques and advanced surgical procedures.',
+    heroTitle: 'Advanced Spine Surgery in India at Apollo Hospital',
+    description: 'No. 1 Spine surgery hospital in India offers  with comprehensive treatment for spinal disorders using minimally invasive techniques and advanced surgical procedures.',
     features: [
       'Minimally invasive spine surgery',
-      'Computer-assisted navigation',
+      'Best robotic spine surgery in India',
       'Comprehensive spine rehabilitation',
       'Pain management programs'
     ],
@@ -163,22 +163,22 @@ export const departments: Department[] = [
       'Disc Replacement',
       'Scoliosis Correction',
       'Spinal Tumor Surgery',
-      'Minimally Invasive Procedures'
+      'Minimally Invasive Spine Surgery in India'
     ],
     whyChoose: [
-      'Expert spine surgeons',
+      'Best doctor for spine surgery',
       'Advanced surgical navigation systems',
-      'Minimally invasive techniques',
-      'Comprehensive rehabilitation programs'
+      'Comprehensive rehabilitation programs',
+      'Lazer spine surgery and other advanced techniques'
     ]
   },
-  {
+   {
     id: 'pediatric-surgery',
     name: 'Pediatric Surgery',
     title: 'Pediatric Surgery',
     icon: Baby,
     heroTitle: 'Specialized Pediatric Surgery at Apollo Hospital',
-    description: 'Our pediatric surgery department provides comprehensive surgical care for children with specialized equipment, child-friendly environment, and expert pediatric surgeons.',
+    description: 'Best hospital for pediatric surgery in India with comprehensive surgical care for children with specialized equipment, child-friendly environment, and expert pediatric surgeons.',
     features: [
       'Child-friendly surgical environment',
       'Specialized pediatric equipment',
@@ -203,35 +203,35 @@ export const departments: Department[] = [
       'Family-centered care approach'
     ]
   },
-  {
+    {
     id: 'ivf',
     name: 'IVF',
     title: 'IVF Treatment',
     icon: Users,
-    heroTitle: 'Advanced IVF Treatment at Apollo Hospital',
-    description: 'Our fertility center offers comprehensive IVF and reproductive health services with state-of-the-art technology and personalized treatment plans.',
+    heroTitle: 'Advanced IVF Treatment in India at Apollo Hospital',
+    description: 'Best fertility clinic in India with comprehensive IVF and reproductive health services with state-of-the-art technology and personalized treatment plans.',
     features: [
-      'Advanced IVF laboratory',
+      'Best IVF treatment hospital in India',
       'Personalized fertility treatments',
       'Comprehensive fertility assessment',
       'Emotional support and counseling'
     ],
     stats: {
-      successRate: '65%',
+      successRate: '75%',
       patientsCount: '800+'
     },
     treatments: [
-      'In Vitro Fertilization (IVF)',
+      'IVF Treatment in India',
       'Intrauterine Insemination (IUI)',
       'Egg Freezing',
       'Fertility Preservation',
       'Male Infertility Treatment'
     ],
     whyChoose: [
-      'High success rates in IVF',
+      'High success rates in IVF with best doctors in India',
       'Advanced embryology laboratory',
       'Personalized treatment protocols',
-      'Comprehensive fertility services'
+      'Comprehensive fertility services with best IVF treatment cost in India'
     ]
   },
   {
@@ -252,20 +252,20 @@ export const departments: Department[] = [
       patientsCount: '500+'
     },
     treatments: [
-      'Liver Transplant',
-      'Kidney Transplant',
+      'Liver Transplant in India',
+      'Kidney Transplant Surgery Hospital',
       'Heart Transplant',
       'Bone Marrow Transplant',
       'Corneal Transplant'
     ],
     whyChoose: [
-      'Experienced transplant surgeons',
+      'Best kidney transplant surgeons',
       'Comprehensive transplant programs',
       'Advanced post-transplant care',
       'High success rates in transplantation'
     ]
   },
-  {
+   {
     id: 'hematology',
     name: 'Hematology',
     title: 'Hematology Treatment',
@@ -275,8 +275,8 @@ export const departments: Department[] = [
     features: [
       'Advanced blood disorder diagnostics',
       'Specialized hematology treatments',
-      'Bone marrow transplant facility',
-      'Comprehensive blood cancer care'
+      'Best Bone marrow transplant doctor in India',
+      'Comprehensive leukemia cancer treatment'
     ],
     stats: {
       successRate: '92%',
@@ -284,13 +284,13 @@ export const departments: Department[] = [
     },
     treatments: [
       'Leukemia Treatment',
-      'Lymphoma Treatment',
+      'Lymphoma Cancer Treatment in India',
       'Bone Marrow Transplant',
       'Blood Disorder Management',
       'Hemophilia Treatment'
     ],
     whyChoose: [
-      'Expert hematologists',
+      'Best bone marrow transplant doctor in India',
       'Advanced blood testing facilities',
       'Specialized treatment protocols',
       'Comprehensive blood disorder care'
