@@ -1,5 +1,4 @@
-import React from "react";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Contact } from "lucide-react";
 
 const FloatingButtons = () => {
   const handleWhatsApp = () => {
@@ -29,7 +28,7 @@ const FloatingButtons = () => {
         onClick={scrollToContact}
         className="w-14 h-14 bg-fortis-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"
       >
-        <Phone className="w-6 h-6" />
+        <Contact className="w-6 h-6" />
       </button>
     </div>
   );
