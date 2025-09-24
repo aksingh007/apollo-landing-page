@@ -195,7 +195,7 @@ const FormSection: React.FC<FormSectionProps> = ({
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
 
-  const getCountryFromPhone = (phone: string) => {
+  const getCountryFromPhone = React.useCallback((phone: string) => {
     if (!phone) return "India";
 
     const countryMap: { [key: string]: string } = {
@@ -224,7 +224,7 @@ const FormSection: React.FC<FormSectionProps> = ({
     }
 
     return "India";
-  };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -245,7 +245,7 @@ const FormSection: React.FC<FormSectionProps> = ({
         country: country,
         address_city: "",
         language: "en",
-        source: "Facebook",
+        source: "google_ads",
         variant: "a",
       },
       gender: formData.gender,
@@ -287,9 +287,12 @@ const FormSection: React.FC<FormSectionProps> = ({
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    },
+    [formData]
+  );
 
   return (
     <>

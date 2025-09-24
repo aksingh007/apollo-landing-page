@@ -19,9 +19,12 @@ const FAQSection: React.FC<FAQSectionProps> = ({
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const toggleFAQ = React.useCallback(
+    (index: number) => {
+      setOpenIndex(openIndex === index ? null : index);
+    },
+    [openIndex]
+  );
 
   return (
     <section className="py-20 bg-gray-50">

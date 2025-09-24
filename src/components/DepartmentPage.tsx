@@ -10,13 +10,24 @@ import {
 } from "lucide-react";
 
 import Navbar from "./Navbar";
-import FormSection from "./FormSection";
-import DoctorsCarousel from "./DoctorsCarousel";
+
 import FloatingButtons from "./FloatingButtons";
-import TestimonialsSection from "./TestimonialsSection";
-import FAQSection from "./FAQSection";
+
 import { departmentFAQs } from "../data/FAQ";
 import { getDepartmentBySlug } from "../data/departments";
+
+// Lazy load heavy components
+const FormSection = React.lazy(() => import("./FormSection"));
+const DoctorsCarousel = React.lazy(() => import("./DoctorsCarousel"));
+const TestimonialsSection = React.lazy(() => import("./TestimonialsSection"));
+const FAQSection = React.lazy(() => import("./FAQSection"));
+
+// Loading component for lazy loaded sections
+const SectionLoader = () => (
+  <div className="flex justify-center items-center py-12">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-fortis-600"></div>
+  </div>
+);
 
 const DepartmentPage = () => {
   const { department } = useParams<{ department: string }>();
@@ -128,12 +139,14 @@ const DepartmentPage = () => {
             </div>
 
             <div>
-              <FormSection
-                id="contact-form"
-                title={`Book Your ${departmentData.name} Consultation`}
-                subtitle="Get personalized treatment plan from our experts"
-                className="bg-white text-gray-900"
-              />
+              <React.Suspense fallback={<SectionLoader />}>
+                <FormSection
+                  id="contact-form"
+                  title={`Book Your ${departmentData.name} Consultation`}
+                  subtitle="Get personalized treatment plan from our experts"
+                  className="bg-white text-gray-900"
+                />
+              </React.Suspense>
             </div>
           </div>
         </div>
@@ -353,7 +366,9 @@ const DepartmentPage = () => {
             </p>
           </div>
 
-          <DoctorsCarousel />
+          <React.Suspense fallback={<SectionLoader />}>
+            <DoctorsCarousel />
+          </React.Suspense>
         </div>
       </section>
 
@@ -416,7 +431,9 @@ const DepartmentPage = () => {
       </section>
 
       {/* Testimonials */}
-      <TestimonialsSection />
+      <React.Suspense fallback={<SectionLoader />}>
+        <TestimonialsSection />
+      </React.Suspense>
 
       {/* Special Offer Section */}
       <section className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
@@ -447,11 +464,13 @@ const DepartmentPage = () => {
         </div>
       </section>
       {/* FAQ Section */}
-      <FAQSection
-        title={`${departmentData.name} FAQs`}
-        subtitle={`Common questions about ${departmentData.name.toLowerCase()} treatment at Apollo Hospital`}
-        faqs={departmentFAQs[departmentData.id] || []}
-      />
+      <React.Suspense fallback={<SectionLoader />}>
+        <FAQSection
+          title={`${departmentData.name} FAQs`}
+          subtitle={`Common questions about ${departmentData.name.toLowerCase()} treatment at Apollo Hospital`}
+          faqs={departmentFAQs[departmentData.id] || []}
+        />
+      </React.Suspense>
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
