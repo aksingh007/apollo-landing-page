@@ -147,9 +147,11 @@ export const departmentFAQs: { [key: string]: FAQ[] } = {
     {
       question: "What is the Cancer Treatment Cost in India?",
       answer: "The cost of cancer treatment depends on the type of cancer (including the stage), treatment protocol, choice of hospital and the city. For example, the cost of breast cancer in Delhi can range between $4,500 to $9,000. Similarly, the cost can vary depending on the factors above."
+    },
+    {
+      question: "Which is the best laser treatment hospital for cancer in India?",
+      answer: "Apollo hospital is one of the best facilities that offers the best laser treatment for cancer in India. They offer Photodynamic therapy (PDT) which involves light-activated drug to kill cancerous cells."
     }
-
-
   ],
 
 

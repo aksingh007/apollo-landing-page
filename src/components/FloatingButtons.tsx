@@ -20,6 +20,7 @@ const FloatingButtons = () => {
       <button
         onClick={handleWhatsApp}
         className="w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:scale-110"
+        id="apollo-whatsapp"
       >
         <MessageCircle className="w-6 h-6" />
       </button>

@@ -53,8 +53,8 @@ export const departments: Department[] = [
     name: 'Neurology',
     title: 'Neurology Treatment',
     icon: Brain,
-    heroTitle: 'Expert Neurology Treatment at Apollo Hospital',
-    description: 'The best neuro rehabilitation centre in India with comprehensive care for brain, spine, and nervous system disorders using advanced diagnostic tools and innovative treatment approaches.',
+    heroTitle: 'The Best Neuro Rehabilitation Centre in India',
+    description: 'Get expert neurology treatment at Apollo Hospital with comprehensive care for brain, spine, and nervous system disorders using advanced diagnostic tools and innovative treatment approaches.',
     features: [
       'Advanced Cyberknife treatment',
       'Minimally invasive neurosurgery',
@@ -84,8 +84,8 @@ export const departments: Department[] = [
     name: 'Orthopedic',
     title: 'Orthopedic Treatment',
     icon: Bone,
-    heroTitle: 'Advanced Joint Replacement in India at Apollo Hospital',
-    description: 'India\'s first robotic knee replacement surgery center offering comprehensive orthopedic care with cutting-edge technology and minimally invasive procedures.',
+    heroTitle: 'Best Hospital for Knee Replacement Surgery in India',
+    description: 'India\'s first center to provide advanced joint replacement in India offering comprehensive orthopedic care with cutting-edge technology and minimally invasive procedures.',
     features: [
       'Bilateral knee replacement',
       'Minimally invasive spine surgery',
@@ -115,13 +115,13 @@ export const departments: Department[] = [
     name: 'Oncology',
     title: 'Cancer Treatment',
     icon: Activity,
-    heroTitle: 'Comprehensive Cancer Treatment in India at Apollo Hospital',
-    description: 'No. 1 Cancer Treatment Hospital in India - our comprehensive cancer care program combines cutting-edge technology, personalized treatment plans, and compassionate care to provide the best possible outcomes for cancer patients.',
+    heroTitle: 'No. 1 Cancer Treatment Hospital in India',
+    description: 'Apollo helps you recover with the best cancer treatment in India, made affordable for you. Pay 70% less for high success cancer treatment. Get consultation with the top oncologists today.',
     features: [
       'Best doctor for cancer treatment in India',
       'Latest chemotherapy and radiation therapy for cancer treatment',
       'Minimally invasive surgical procedures',
-      'Comprehensive support services'
+      'Laser Treatment for Cancer in India'
     ],
     stats: {
       successRate: '95%',

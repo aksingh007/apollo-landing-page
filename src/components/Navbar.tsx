@@ -53,6 +53,7 @@ const Navbar = () => {
             <button
               onClick={handleWhatsApp}
               className="flex items-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+              id="apollo-whatsapp"
             >
               <MessageCircle className="w-4 h-4 mr-2" />
               WhatsApp
@@ -89,6 +90,7 @@ const Navbar = () => {
               <button
                 onClick={handleWhatsApp}
                 className="flex items-center justify-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all duration-300 mx-4"
+                id="apollo-whatsapp"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp

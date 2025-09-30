@@ -33,6 +33,8 @@ import FormSection from "./FormSection";
 import DoctorsCarousel from "./DoctorsCarousel";
 import FloatingButtons from "./FloatingButtons";
 import TestimonialsSection from "./TestimonialsSection";
+import TestimonialBanner from "./TestimonialBanner";
+
 import FAQSection from "./FAQSection";
 import { generalFAQs } from "../data/FAQ";
 
@@ -153,14 +155,15 @@ function HomePage() {
               </div>
 
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                World-Class Healthcare at
+                Leading International Healthcare at
                 <span className="text-secondary-300"> Apollo Hospital</span>
               </h1>
 
               <p className="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">
-                At Apollo Hospital Delhi, we provide world-class healthcare
-                services, supported by state-of-the-art medical technologies and
-                a team of dedicated healthcare professionals.
+                India’s top-ranked hospital for advanced treatment, global
+                accreditations, and truly compassionate care. Trusted by
+                thousands of international patients. Cutting-edge technology
+                with international standards.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
@@ -186,6 +189,8 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      <TestimonialBanner />
 
       {/* Hospital Infrastructure Section */}
       <section className="py-20 bg-white">

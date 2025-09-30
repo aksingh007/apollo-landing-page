@@ -15,6 +15,7 @@ import FloatingButtons from "./FloatingButtons";
 
 import { departmentFAQs } from "../data/FAQ";
 import { getDepartmentBySlug } from "../data/departments";
+import TestimonialBanner from "./TestimonialBanner";
 
 // Lazy load heavy components
 const FormSection = React.lazy(() => import("./FormSection"));
@@ -151,7 +152,7 @@ const DepartmentPage = () => {
           </div>
         </div>
       </div>
-
+      <TestimonialBanner department={departmentData.name} />
       {/* Hospital Infrastructure Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

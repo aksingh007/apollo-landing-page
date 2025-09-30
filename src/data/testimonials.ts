@@ -71,10 +71,43 @@ export const testimonials: Testimonial[] = [
     name: 'Lisa Ibrahim',
     country: 'Uganda',
     flag: '🇺🇬',
-    treatment: 'IVF Treatment',
+    treatment: 'Spine Surgery',
     rating: 5,
-    testimonial: 'After years of trying to conceive, the IVF team at Apollo helped us achieve our dream of parenthood. The treatment was handled with such care and sensitivity. We now have a beautiful baby thanks to Apollo.',
+    testimonial: 'I am 55-year-old and I was dealing with lumbar spine problems for many years. They facilitated video telehealth with Dr. S.K. Rajan. Armed with the knowledge from the two endoscopic spine surgeons here Dr. Rajan suggested the exact same surgery. Within two weeks I was on a plane to India. I am now out 4.5 months from surgery. The level of pain I was in prior to surgery was easily 8 to 9. Currently my pain is zero!!! ',
     image: 'https://yapitahealth.com/static/images/Armia.webp',
+    department: 'Spine Surgery'
+  },
+  {
+    id: '7',
+    name: 'Joy',
+    country: 'United Kingdom',
+    flag: '🇬🇧',
+    treatment: 'Hematology Treatment',
+    rating: 5,
+    testimonial: 'I was struggling with a complex blood disorder that left me feeling exhausted and worried. I had seen multiple doctors, but none could pinpoint the issue. From my very first appointment at Apollo Hospital, I am managing my condition and living without constant anxiety.',
+    image: 'https://yapitahealth.com/static/images/Joy.webp',
+    department: 'hematology Treatment'
+  },
+  {
+    id: '8',
+    name: 'Grace Lewa',
+    country: 'Ghana',
+    flag: '🇬🇭',
+    treatment: 'IVF',
+    rating: 5,
+    testimonial: 'My cancer treatment journey at Apollo was handled with such care and professionalism. The oncology team provided personalized treatment that helped me beat cancer. I am forever grateful to the entire team.',
+    image: 'https://yapitahealth.com/static/images/Grace.webp',
     department: 'IVF'
+  },
+  {
+    id: '9',
+    name: 'Jennifer Martinez',
+    country: 'United States',
+    flag: '🇺🇸',
+    treatment: 'Pediatric Surgery',
+    rating: 5,
+    testimonial: 'The pediatric team at Apollo Hospital saved my child\'s life. The surgery was performed with utmost precision and the post-operative care was exceptional. I highly recommend Apollo for anyone seeking world-class pediatric treatment.',
+    image: 'https://yapitahealth.com/static/images/MatthewBoucher.png',
+    department: 'Pediatric Surgery'
   }
 ];
