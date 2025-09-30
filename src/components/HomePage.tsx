@@ -160,10 +160,10 @@ function HomePage() {
               </h1>
 
               <p className="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">
-                India’s top-ranked hospital for advanced treatment, global
+                India’s top-ranked hospital for advanced treatment, with global
                 accreditations, and truly compassionate care. Trusted by
-                thousands of international patients. Cutting-edge technology
-                with international standards.
+                thousands of international patients. Get the best treatment with
+                cutting-edge technology & international standards
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
