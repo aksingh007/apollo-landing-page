@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   CheckCircle,
@@ -7,12 +8,14 @@ import {
   Award,
   Shield,
   Stethoscope,
+  ChevronDown,
 } from "lucide-react";
 
 import Navbar from "./Navbar";
 
 import FloatingButtons from "./FloatingButtons";
 
+import FormPopup from "./FormPopup";
 import { departmentFAQs } from "../data/FAQ";
 import { getDepartmentBySlug } from "../data/departments";
 import TestimonialBanner from "./TestimonialBanner";
@@ -32,7 +35,16 @@ const SectionLoader = () => (
 
 const DepartmentPage = () => {
   const { department } = useParams<{ department: string }>();
-  const departmentData = getDepartmentBySlug(department || "");
+  const [showFormPopup, setShowFormPopup] = useState(false);
+  const [popupTitle, setPopupTitle] = useState("");
+  const [popupSubtitle, setPopupSubtitle] = useState("");
+  const [expandedTreatment, setExpandedTreatment] = useState<number | null>(
+    null
+  );
+
+  // Clean the department parameter (remove trailing slash if present)
+  const cleanDepartment = department?.replace(/\/$/, "") || "";
+  const departmentData = getDepartmentBySlug(cleanDepartment);
 
   if (!departmentData) {
     return (
@@ -44,12 +56,305 @@ const DepartmentPage = () => {
           <p className="text-xl text-gray-600">
             The requested department page could not be found.
           </p>
+          <p className="text-lg text-gray-500 mt-4">
+            Looking for: {department}
+          </p>
+          <div className="mt-6">
+            <a
+              href="/"
+              className="text-apollo-600 hover:text-apollo-700 underline"
+            >
+              Return to Homepage
+            </a>
+          </div>
         </div>
       </div>
     );
   }
 
   const Icon = departmentData.icon;
+
+  React.useEffect(() => {
+    const handleDoctorConsultation = (event: any) => {
+      setPopupTitle(event.detail.title);
+      setPopupSubtitle(event.detail.subtitle);
+      setShowFormPopup(true);
+    };
+
+    window.addEventListener("openDoctorConsultation", handleDoctorConsultation);
+    return () => {
+      window.removeEventListener(
+        "openDoctorConsultation",
+        handleDoctorConsultation
+      );
+    };
+  }, []);
+
+  const openFormPopup = (title: string, subtitle: string) => {
+    setPopupTitle(title);
+    setPopupSubtitle(subtitle);
+    setShowFormPopup(true);
+  };
+
+  const toggleTreatment = (index: number) => {
+    setExpandedTreatment(expandedTreatment === index ? null : index);
+  };
+
+  // Enhanced treatment data with descriptions
+  const treatmentDescriptions = {
+    cardiology: [
+      {
+        name: "Coronary Angioplasty",
+        description:
+          "Minimally invasive procedure to open blocked coronary arteries using balloon catheters and stents, restoring blood flow to the heart muscle.",
+      },
+      {
+        name: "Heart Bypass Surgery",
+        description:
+          "Advanced surgical procedure creating alternate pathways around blocked coronary arteries using grafts from other blood vessels.",
+      },
+      {
+        name: "Double Valve Replacement",
+        description:
+          "Comprehensive cardiac surgery replacing two heart valves simultaneously with mechanical or biological prosthetic valves.",
+      },
+      {
+        name: "Pacemaker Implantation",
+        description:
+          "Minimally invasive procedure to implant electronic devices that regulate heart rhythm and prevent dangerous arrhythmias.",
+      },
+      {
+        name: "Heart Transplant in India",
+        description:
+          "Life-saving procedure replacing a diseased heart with a healthy donor heart, performed by expert cardiac transplant surgeons.",
+      },
+    ],
+    neurology: [
+      {
+        name: "Brain Tumor Treatment",
+        description:
+          "Comprehensive treatment using advanced imaging, precision surgery, Gamma Knife radiosurgery, and targeted therapies for brain tumors.",
+      },
+      {
+        name: "Stroke Treatment",
+        description:
+          "Emergency stroke care with rapid intervention, thrombolytic therapy, mechanical thrombectomy, and comprehensive rehabilitation programs.",
+      },
+      {
+        name: "Epilepsy Surgery",
+        description:
+          "Advanced surgical procedures including temporal lobectomy, corpus callosotomy, and deep brain stimulation for drug-resistant epilepsy.",
+      },
+      {
+        name: "Deep Brain Stimulation",
+        description:
+          "Minimally invasive neurosurgical procedure implanting electrodes to treat movement disorders like Parkinson's disease and essential tremor.",
+      },
+      {
+        name: "Spinal Cord Surgery",
+        description:
+          "Complex spinal surgeries for tumors, trauma, and degenerative conditions using microsurgical techniques and advanced navigation systems.",
+      },
+    ],
+    "orthopedic-treatment": [
+      {
+        name: "Joint Replacement Surgery",
+        description:
+          "Robot-assisted knee and hip replacement surgeries using advanced prosthetics and minimally invasive techniques for optimal outcomes.",
+      },
+      {
+        name: "Arthroscopic Surgery",
+        description:
+          "Minimally invasive joint surgery using small incisions and specialized cameras to repair ligaments, cartilage, and joint structures.",
+      },
+      {
+        name: "Spine Surgery",
+        description:
+          "Advanced spinal procedures including fusion, disc replacement, and deformity correction using navigation-guided surgical techniques.",
+      },
+      {
+        name: "Sports Injury Treatment",
+        description:
+          "Comprehensive treatment for athletic injuries including ACL reconstruction, rotator cuff repair, and advanced rehabilitation programs.",
+      },
+      {
+        name: "Fracture Management",
+        description:
+          "Expert treatment of complex fractures using internal fixation, external fixation, and bone grafting techniques for optimal healing.",
+      },
+    ],
+    oncology: [
+      {
+        name: "Chemotherapy for bladder cancer treatment",
+        description:
+          "Personalized chemotherapy protocols using latest drugs and targeted therapies tailored to specific cancer types and patient conditions.",
+      },
+      {
+        name: "Radiation Therapy",
+        description:
+          "Precision radiation treatment using IMRT, IGRT, and stereotactic techniques to target tumors while sparing healthy tissue.",
+      },
+      {
+        name: "Surgical Oncology for breast cancer treatment",
+        description:
+          "Advanced cancer surgery including minimally invasive techniques, robotic surgery, and organ-preserving procedures.",
+      },
+      {
+        name: "Immunotherapy for prostate cancer treatment",
+        description:
+          "Cutting-edge immunotherapy treatments that harness the body's immune system to fight cancer cells effectively.",
+      },
+      {
+        name: "Bone Marrow Transplant",
+        description:
+          "Comprehensive BMT program including autologous and allogeneic transplants for blood cancers and immune system disorders.",
+      },
+    ],
+    "spine-surgery": [
+      {
+        name: "Spinal Fusion Surgery",
+        description:
+          "Advanced surgical technique joining vertebrae to treat spinal instability, deformities, and degenerative conditions with high success rates.",
+      },
+      {
+        name: "Disc Replacement",
+        description:
+          "Artificial disc replacement surgery preserving spinal motion while treating degenerative disc disease and chronic back pain.",
+      },
+      {
+        name: "Scoliosis Correction",
+        description:
+          "Comprehensive spinal deformity correction using advanced instrumentation and techniques to restore spinal alignment and function.",
+      },
+      {
+        name: "Spinal Tumor Surgery",
+        description:
+          "Complex tumor removal procedures using intraoperative monitoring and advanced imaging to preserve neurological function.",
+      },
+      {
+        name: "Minimally Invasive Spine Surgery in India",
+        description:
+          "Advanced endoscopic and microscopic techniques reducing tissue damage, pain, and recovery time for spinal conditions.",
+      },
+    ],
+    "pediatric-surgery": [
+      {
+        name: "Congenital Surgery",
+        description:
+          "Specialized surgical correction of birth defects and congenital anomalies using child-friendly techniques and equipment.",
+      },
+      {
+        name: "Pediatric Trauma Care",
+        description:
+          "Emergency surgical care for injured children with specialized pediatric trauma protocols and child life support services.",
+      },
+      {
+        name: "Minimally Invasive Procedures",
+        description:
+          "Advanced laparoscopic and thoracoscopic surgeries for children reducing pain, scarring, and recovery time.",
+      },
+      {
+        name: "Neonatal Surgery",
+        description:
+          "Highly specialized surgery for newborns and premature infants with dedicated NICU support and expert neonatal care.",
+      },
+      {
+        name: "Pediatric Oncology Surgery",
+        description:
+          "Comprehensive cancer surgery for children combining advanced surgical techniques with child-centered care approaches.",
+      },
+    ],
+    ivf: [
+      {
+        name: "IVF Treatment in India",
+        description:
+          "Advanced in vitro fertilization using latest laboratory techniques, genetic testing, and personalized treatment protocols.",
+      },
+      {
+        name: "Intrauterine Insemination (IUI)",
+        description:
+          "Less invasive fertility treatment placing prepared sperm directly into the uterus during ovulation for enhanced conception chances.",
+      },
+      {
+        name: "Egg Freezing",
+        description:
+          "Advanced cryopreservation techniques allowing women to preserve fertility for future family planning with high success rates.",
+      },
+      {
+        name: "Fertility Preservation",
+        description:
+          "Comprehensive fertility preservation options for cancer patients and others facing treatments that may affect reproductive health.",
+      },
+      {
+        name: "Male Infertility Treatment",
+        description:
+          "Specialized treatments for male fertility issues including surgical sperm retrieval, hormone therapy, and assisted reproduction techniques.",
+      },
+    ],
+    "transplant-surgery": [
+      {
+        name: "Liver Transplant in India",
+        description:
+          "Comprehensive liver transplant program including living donor and deceased donor transplants with excellent survival rates.",
+      },
+      {
+        name: "Kidney Transplant Surgery Hospital",
+        description:
+          "Advanced kidney transplant procedures with comprehensive pre and post-transplant care and immunosuppressive management.",
+      },
+      {
+        name: "Heart Transplant",
+        description:
+          "Life-saving heart transplant surgery performed by expert cardiac surgeons with advanced post-transplant monitoring and care.",
+      },
+      {
+        name: "Bone Marrow Transplant",
+        description:
+          "Comprehensive BMT program treating blood cancers and immune disorders with autologous and allogeneic transplant options.",
+      },
+      {
+        name: "Corneal Transplant",
+        description:
+          "Advanced corneal transplant procedures restoring vision using latest microsurgical techniques and donor tissue preservation.",
+      },
+    ],
+    hematology: [
+      {
+        name: "Leukemia Treatment",
+        description:
+          "Comprehensive leukemia care using latest chemotherapy protocols, targeted therapy, and bone marrow transplantation options.",
+      },
+      {
+        name: "Lymphoma Cancer Treatment in India",
+        description:
+          "Advanced lymphoma treatment combining chemotherapy, radiation therapy, immunotherapy, and stem cell transplantation.",
+      },
+      {
+        name: "Bone Marrow Transplant",
+        description:
+          "Expert BMT procedures for blood disorders using advanced conditioning regimens and post-transplant supportive care.",
+      },
+      {
+        name: "Blood Disorder Management",
+        description:
+          "Comprehensive care for various blood disorders including anemia, bleeding disorders, and clotting abnormalities.",
+      },
+      {
+        name: "Hemophilia Treatment",
+        description:
+          "Specialized hemophilia care including factor replacement therapy, prophylaxis programs, and comprehensive bleeding disorder management.",
+      },
+    ],
+  };
+
+  const currentTreatments =
+    treatmentDescriptions[
+      departmentData.id as keyof typeof treatmentDescriptions
+    ] ||
+    departmentData.treatments.map((treatment) => ({
+      name: treatment,
+      description: `Advanced ${treatment} with international quality standards and expert medical care.`,
+    }));
 
   const amenities = [
     {
@@ -107,8 +412,16 @@ const DepartmentPage = () => {
       <FloatingButtons />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-fortis-900 via-fortis-800 to-secondary-700 text-white overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <div className="relative text-white overflow-hidden pt-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/facility_photo/photo/3677ebcc-f7d7-4c29-9220-00948c5875af/file.webp"
+            alt="Hospital Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-fortis-900 via-fortis-800 to-secondary-700 opacity-50"></div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -140,18 +453,17 @@ const DepartmentPage = () => {
             </div>
 
             <div>
-              <React.Suspense fallback={<SectionLoader />}>
-                <FormSection
-                  id="contact-form"
-                  title={`Book Your ${departmentData.name} Consultation`}
-                  subtitle="Get personalized treatment plan from our experts"
-                  className="bg-white text-gray-900"
-                />
-              </React.Suspense>
+              <FormSection
+                id="contact-form"
+                title={`Book Your ${departmentData.name} Consultation`}
+                subtitle="Get personalized treatment plan from our experts"
+                className="bg-white text-gray-900"
+              />
             </div>
           </div>
         </div>
       </div>
+
       <TestimonialBanner department={departmentData.name} />
       {/* Hospital Infrastructure Section */}
       <section className="py-20 bg-white">
@@ -253,6 +565,17 @@ const DepartmentPage = () => {
                   <div className="text-sm text-gray-200">Patients Treated</div>
                 </div>
               </div>
+              <button
+                onClick={() =>
+                  openFormPopup(
+                    `Get ${departmentData.name} Treatment Quote`,
+                    `Receive personalized ${departmentData.name.toLowerCase()} treatment plan`
+                  )
+                }
+                className="w-full mt-6 bg-secondary-300 text-fortis-900 py-3 px-6 rounded-lg font-semibold hover:bg-secondary-200 transition-all duration-300"
+              >
+                Get Treatment Quote
+              </button>
             </div>
           </div>
         </div>
@@ -271,21 +594,40 @@ const DepartmentPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {departmentData.treatments.map((treatment, index) => (
+            {currentTreatments.map((treatment, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105"
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105"
               >
-                <div className="w-12 h-12 bg-fortis-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary-600 transition-colors">
-                  <CheckCircle className="w-6 h-6 text-white" />
+                <div
+                  className="p-6 cursor-pointer"
+                  onClick={() => toggleTreatment(index)}
+                >
+                  <div className="w-12 h-12 bg-fortis-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary-600 transition-colors">
+                    <CheckCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {treatment.name}
+                  </h3>
+
+                  <div className="flex justify-center">
+                    <ChevronDown
+                      className={`w-5 h-5 text-fortis-600 transition-transform duration-300 ${
+                        expandedTreatment === index ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {treatment}
-                </h3>
-                <p className="text-gray-600">
-                  Advanced {treatment.toLowerCase()} with international quality
-                  standards
-                </p>
+
+                {expandedTreatment === index && (
+                  <div className="px-6 pb-6 border-t border-gray-100">
+                    <div className="pt-4">
+                      <p className="text-gray-600 leading-relaxed">
+                        {treatment.description}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -306,19 +648,36 @@ const DepartmentPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {departmentData.whyChoose.map((reason, index) => (
-              <div
-                key={index}
-                className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg"
-              >
-                <div className="w-8 h-8 bg-fortis-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <CheckCircle className="w-5 h-5 text-white" />
+            {departmentData.whyChoose.map((reason, index) => {
+              // Split reason into heading and subheading
+              const parts = reason.split(/[:•]/);
+              const heading = parts[0].trim();
+              const subheading = parts.slice(1).join("").trim();
+
+              return (
+                <div
+                  key={index}
+                  className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg"
+                >
+                  <div className="w-8 h-8 bg-fortis-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      {heading}
+                    </h3>
+                    {subheading && (
+                      <p className="text-gray-600 leading-relaxed">
+                        {subheading}
+                      </p>
+                    )}
+                    {!subheading && (
+                      <p className="text-gray-600 leading-relaxed">{reason}</p>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-gray-700 leading-relaxed">{reason}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -432,9 +791,7 @@ const DepartmentPage = () => {
       </section>
 
       {/* Testimonials */}
-      <React.Suspense fallback={<SectionLoader />}>
-        <TestimonialsSection />
-      </React.Suspense>
+      <TestimonialsSection department={departmentData.id} />
 
       {/* Special Offer Section */}
       <section className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
@@ -528,6 +885,13 @@ const DepartmentPage = () => {
           </div>
         </div>
       </footer>
+
+      <FormPopup
+        isOpen={showFormPopup}
+        onClose={() => setShowFormPopup(false)}
+        title={popupTitle}
+        subtitle={popupSubtitle}
+      />
     </div>
   );
 };

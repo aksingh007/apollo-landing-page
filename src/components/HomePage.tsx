@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   Phone,
   Mail,
@@ -26,6 +27,7 @@ import {
   Coffee,
   Clock,
   UserCheck,
+  ChevronDown,
 } from "lucide-react";
 
 import Navbar from "./Navbar";
@@ -34,41 +36,76 @@ import DoctorsCarousel from "./DoctorsCarousel";
 import FloatingButtons from "./FloatingButtons";
 import TestimonialsSection from "./TestimonialsSection";
 import TestimonialBanner from "./TestimonialBanner";
-
+import FormPopup from "./FormPopup";
 import FAQSection from "./FAQSection";
 import { generalFAQs } from "../data/FAQ";
 
 function HomePage() {
+  const [showFormPopup, setShowFormPopup] = useState(false);
+  const [popupTitle, setPopupTitle] = useState("");
+  const [popupSubtitle, setPopupSubtitle] = useState("");
+  const [expandedTreatment, setExpandedTreatment] = useState<number | null>(
+    null
+  );
+
+  React.useEffect(() => {
+    const handleDoctorConsultation = (event: any) => {
+      setPopupTitle(event.detail.title);
+      setPopupSubtitle(event.detail.subtitle);
+      setShowFormPopup(true);
+    };
+
+    window.addEventListener("openDoctorConsultation", handleDoctorConsultation);
+    return () => {
+      window.removeEventListener(
+        "openDoctorConsultation",
+        handleDoctorConsultation
+      );
+    };
+  }, []);
+
   const specialties = [
     {
       icon: Heart,
       name: "Cardiology",
       description: "World-class heart care with advanced procedures",
+      subheading:
+        "Our cardiology department offers comprehensive heart care with cutting-edge technology, minimally invasive procedures, and personalized treatment plans. We specialize in coronary interventions, cardiac surgery, and advanced diagnostic procedures with a 98% success rate.",
     },
     {
       icon: Brain,
       name: "Neurology",
       description: "Comprehensive brain and spine treatments",
+      subheading:
+        "Advanced neurological care using state-of-the-art imaging, minimally invasive neurosurgery, and comprehensive rehabilitation programs. Our expert team treats brain tumors, stroke, epilepsy, and complex neurological disorders with precision and compassion.",
     },
     {
       icon: Bone,
       name: "Orthopedics",
       description: "Robot-assisted joint replacement surgery",
+      subheading:
+        "India's first robot-assisted joint replacement center offering comprehensive orthopedic care. We specialize in knee and hip replacements, arthroscopic surgery, spine treatments, and sports medicine with advanced rehabilitation facilities.",
     },
     {
       icon: Eye,
       name: "Ophthalmology",
       description: "Advanced eye care and vision correction",
+      subheading:
+        "Comprehensive eye care services including cataract surgery, retinal treatments, LASIK, and complex ophthalmological procedures. Our advanced surgical suites and experienced surgeons ensure optimal vision outcomes for all patients.",
     },
     {
       icon: Activity,
       name: "Oncology",
       description: "Comprehensive cancer treatment programs",
+      subheading:
+        "Multidisciplinary cancer care combining surgery, chemotherapy, radiation therapy, and immunotherapy. Our comprehensive program includes precision medicine, clinical trials, and supportive care services with a 95% success rate.",
     },
     {
       icon: Users,
       name: "Pediatrics",
       description: "Specialized care for children and infants",
+      subheading:
+        "Child-friendly healthcare services with specialized pediatric equipment and expert care teams. We provide comprehensive medical and surgical care for children, including neonatal intensive care, pediatric surgery, and developmental support programs.",
     },
   ];
 
@@ -136,14 +173,32 @@ function HomePage() {
     },
   ];
 
+  const openFormPopup = (title: string, subtitle: string) => {
+    setPopupTitle(title);
+    setPopupSubtitle(subtitle);
+    setShowFormPopup(true);
+  };
+
+  const toggleTreatment = (index: number) => {
+    setExpandedTreatment(expandedTreatment === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <FloatingButtons />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-fortis-900 via-fortis-800 to-secondary-700 text-white overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <div className="relative text-white overflow-hidden pt-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/facility_photo/photo/3677ebcc-f7d7-4c29-9220-00948c5875af/file.webp"
+            alt="Hospital Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-fortis-900 via-fortis-800 to-secondary-700 opacity-50"></div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -155,15 +210,13 @@ function HomePage() {
               </div>
 
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Leading International Healthcare at
-                <span className="text-secondary-300"> Apollo Hospital</span>
+                World-Class Healthcare at
+                <span className="text-secondary-300"> Fortis Hospital</span>
               </h1>
 
               <p className="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">
-                India’s top-ranked hospital for advanced treatment, with global
-                accreditations, and truly compassionate care. Trusted by
-                thousands of international patients. Get the best treatment with
-                cutting-edge technology & international standards
+                Experience India's premier healthcare with international
+                standards, advanced technology, and compassionate care.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
@@ -250,7 +303,7 @@ function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6">
-                Advanced Cancer Treatment at Apollo
+                Advanced Cancer Treatment at Fortis
               </h2>
               <p className="text-xl text-gray-200 mb-8 leading-relaxed">
                 Our comprehensive cancer care program combines cutting-edge
@@ -304,6 +357,18 @@ function HomePage() {
                   <div className="text-sm text-gray-200">Patients Treated</div>
                 </div>
               </div>
+
+              <button
+                onClick={() =>
+                  openFormPopup(
+                    "Get Cancer Treatment Quote",
+                    "Receive personalized cancer treatment plan"
+                  )
+                }
+                className="w-full mt-6 bg-secondary-300 text-fortis-900 py-3 px-6 rounded-lg font-semibold hover:bg-secondary-200 transition-all duration-300"
+              >
+                Get Treatment Quote
+              </button>
             </div>
           </div>
         </div>
@@ -380,15 +445,38 @@ function HomePage() {
             {specialties.map((specialty, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105"
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:scale-105"
               >
-                <div className="w-12 h-12 bg-fortis-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary-600 transition-colors">
-                  <specialty.icon className="w-6 h-6 text-white" />
+                <div
+                  className="p-8 cursor-pointer"
+                  onClick={() => toggleTreatment(index)}
+                >
+                  <div className="w-12 h-12 bg-fortis-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary-600 transition-colors">
+                    <specialty.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {specialty.name}
+                  </h3>
+                  <p className="text-gray-600">{specialty.description}</p>
+
+                  <div className="flex justify-center mt-4">
+                    <ChevronDown
+                      className={`w-5 h-5 text-fortis-600 transition-transform duration-300 ${
+                        expandedTreatment === index ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {specialty.name}
-                </h3>
-                <p className="text-gray-600">{specialty.description}</p>
+
+                {expandedTreatment === index && (
+                  <div className="px-8 pb-8 border-t border-gray-100">
+                    <div className="pt-6">
+                      <p className="text-gray-600 leading-relaxed">
+                        {specialty.subheading}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -566,6 +654,13 @@ function HomePage() {
           </div>
         </div>
       </footer>
+
+      <FormPopup
+        isOpen={showFormPopup}
+        onClose={() => setShowFormPopup(false)}
+        title={popupTitle}
+        subtitle={popupSubtitle}
+      />
     </div>
   );
 }

@@ -217,6 +217,22 @@ const DoctorsCarousel = React.memo(() => {
                       />
                     ))}
                   </div>
+
+                  <button
+                    onClick={() => {
+                      // Get the openFormPopup function from parent component
+                      const event = new CustomEvent("openDoctorConsultation", {
+                        detail: {
+                          title: `Consult ${doctor.name}`,
+                          subtitle: `Book consultation with ${doctor.specialty} specialist`,
+                        },
+                      });
+                      window.dispatchEvent(event);
+                    }}
+                    className="w-full mt-4 bg-fortis-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-fortis-700 transition-all duration-300 text-sm"
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
             </div>
