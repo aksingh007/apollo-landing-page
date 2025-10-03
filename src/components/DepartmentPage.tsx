@@ -515,6 +515,20 @@ const DepartmentPage = () => {
             </div>
           </div>
         </div>
+
+        <div className="block md:hidden mt-12 text-center">
+          <button
+            onClick={() =>
+              openFormPopup(
+                `Get ${departmentData.name} Treatment Plan`,
+                `Connect with our ${departmentData.name.toLowerCase()} specialists for personalized care`
+              )
+            }
+            className="bg-gradient-to-r from-fortis-600 to-secondary-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-fortis-700 hover:to-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Get Treatment Plan
+          </button>
+        </div>
       </section>
 
       {/* Department Specific Section */}
@@ -625,6 +639,17 @@ const DepartmentPage = () => {
                       <p className="text-gray-600 leading-relaxed">
                         {treatment.description}
                       </p>
+                      <button
+                        onClick={() =>
+                          openFormPopup(
+                            `Book ${treatment.name} Consultation`,
+                            `Get personalized ${treatment.name.toLowerCase()} treatment plan`
+                          )
+                        }
+                        className="w-full mt-4 bg-fortis-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-fortis-700 transition-all duration-300"
+                      >
+                        Book Now
+                      </button>
                     </div>
                   </div>
                 )}
@@ -786,6 +811,19 @@ const DepartmentPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="text-center mt-12">
+            <button
+              onClick={() =>
+                openFormPopup(
+                  "Consult Top Doctors",
+                  "Book consultation with our expert doctors"
+                )
+              }
+              className="bg-gradient-to-r from-fortis-600 to-secondary-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-fortis-700 hover:to-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Book Doctor Consultation
+            </button>
           </div>
         </div>
       </section>

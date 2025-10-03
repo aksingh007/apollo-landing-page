@@ -211,7 +211,7 @@ function HomePage() {
 
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 World-Class Healthcare at
-                <span className="text-secondary-300"> Fortis Hospital</span>
+                <span className="text-secondary-300"> Apollo Hospital</span>
               </h1>
 
               <p className="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">
@@ -295,6 +295,19 @@ function HomePage() {
             </div>
           </div>
         </div>
+        <div className="block md:hidden mt-12 text-center">
+          <button
+            onClick={() =>
+              openFormPopup(
+                `Get Your Treatment Plan`,
+                `Connect with our specialists for personalized care`
+              )
+            }
+            className="bg-gradient-to-r from-fortis-600 to-secondary-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-fortis-700 hover:to-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Get Treatment Plan
+          </button>
+        </div>
       </section>
 
       {/* Cancer Treatment Section */}
@@ -303,10 +316,10 @@ function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6">
-                Advanced Cancer Treatment at Fortis
+                Advanced Treatment at Apollo
               </h2>
               <p className="text-xl text-gray-200 mb-8 leading-relaxed">
-                Our comprehensive cancer care program combines cutting-edge
+                Our comprehensive treatment care program combines cutting-edge
                 technology, personalized treatment plans, and compassionate care
                 to provide the best possible outcomes for our patients.
               </p>
@@ -335,7 +348,7 @@ function HomePage() {
               <div className="text-center mb-6">
                 <Activity className="w-16 h-16 mx-auto text-secondary-300 mb-4" />
                 <h3 className="text-2xl font-bold mb-2">
-                  Cancer Care Excellence
+                  Medical Care Excellence
                 </h3>
                 <p className="text-gray-200">
                   Comprehensive treatment programs tailored to each patient's
@@ -474,6 +487,17 @@ function HomePage() {
                       <p className="text-gray-600 leading-relaxed">
                         {specialty.subheading}
                       </p>
+                      <button
+                        onClick={() =>
+                          openFormPopup(
+                            `Book ${specialty.name} Consultation`,
+                            `Get personalized ${specialty.name.toLowerCase()} treatment plan`
+                          )
+                        }
+                        className="w-full mt-4 bg-fortis-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-fortis-700 transition-all duration-300"
+                      >
+                        Book Now
+                      </button>
                     </div>
                   </div>
                 )}
@@ -558,6 +582,19 @@ function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="text-center mt-12">
+            <button
+              onClick={() =>
+                openFormPopup(
+                  "Consult Top Doctors",
+                  "Book consultation with our expert doctors"
+                )
+              }
+              className="bg-gradient-to-r from-fortis-600 to-secondary-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-fortis-700 hover:to-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Book Doctor Consultation
+            </button>
           </div>
         </div>
       </section>
