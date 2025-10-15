@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PhoneInput from "react-phone-number-input";
+import { FileText } from 'lucide-react';
+
 import "react-phone-number-input/style.css";
 
 interface FormSectionProps {
@@ -192,6 +194,7 @@ const FormSection: React.FC<FormSectionProps> = ({
     email: "",
     phone: "",
     gender: "male",
+    medicalSummary: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -241,7 +244,7 @@ const FormSection: React.FC<FormSectionProps> = ({
       flow_data: {
         answers: {
           source_page: window.location.href,
-          notes: document.title,
+          notes: formData.medicalSummary,
         },
         client: "web",
         country: country,
@@ -257,7 +260,7 @@ const FormSection: React.FC<FormSectionProps> = ({
 
     try {
       const response = await fetch(
-        "https://backend.yapitahealth.com/api/v1/patients/",
+        "http://[::1]:3000/api/v1/patients/",
         {
           method: "POST",
           headers: {
@@ -275,6 +278,7 @@ const FormSection: React.FC<FormSectionProps> = ({
           email: "",
           phone: "",
           gender: "male",
+          medicalSummary: "",
         });
       } else if (response.status === 422) {
         setShowErrorModal(true);
@@ -295,7 +299,9 @@ const FormSection: React.FC<FormSectionProps> = ({
     },
     [formData]
   );
-
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   return (
     <>
       <div
@@ -394,6 +400,18 @@ const FormSection: React.FC<FormSectionProps> = ({
               }}
             />
           </div>
+
+          <div className="relative">
+            <textarea
+              name="medicalSummary"
+              placeholder="Please provide some medical summary..."
+              value={formData.medicalSummary}
+              onChange={handleInputChange}
+              rows={2}
+              className={`w-full px-5 py-4 text-base sm:text-lg border-2 rounded-xl focus:outline-none focus:ring-2 transition-all resize-none`}
+            />
+          </div>
+
 
           <button
             type="submit"
