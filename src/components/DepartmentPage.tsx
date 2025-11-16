@@ -90,6 +90,25 @@ const DepartmentPage = () => {
     };
   }, []);
 
+  React.useEffect(() => {
+    const scrollToSection = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+
+    scrollToSection();
+    window.addEventListener('hashchange', scrollToSection);
+
+    return () => {
+      window.removeEventListener('hashchange', scrollToSection);
+    };
+  }, []);
+
   const openFormPopup = (title: string, subtitle: string) => {
     setPopupTitle(title);
     setPopupSubtitle(subtitle);
@@ -452,7 +471,7 @@ const DepartmentPage = () => {
               </div>
             </div>
 
-            <div>
+            <div id="consult">
               <FormSection
                 id="contact-form"
                 title={`Book Your ${departmentData.name} Consultation`}
@@ -660,7 +679,7 @@ const DepartmentPage = () => {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="Why" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -739,7 +758,7 @@ const DepartmentPage = () => {
       </section>
 
       {/* Top Doctors */}
-      <section className="py-20 bg-gray-50">
+      <section id="doctors" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -829,10 +848,12 @@ const DepartmentPage = () => {
       </section>
 
       {/* Testimonials */}
-      <TestimonialsSection department={departmentData.id} />
+      <div id="reviews">
+        <TestimonialsSection department={departmentData.id} />
+      </div>
 
       {/* Special Offer Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
+      <section id="offer" className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-white bg-opacity-20 rounded-full px-6 py-2 mb-6">

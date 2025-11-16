@@ -64,6 +64,25 @@ function HomePage() {
     };
   }, []);
 
+  React.useEffect(() => {
+    const scrollToSection = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+
+    scrollToSection();
+    window.addEventListener('hashchange', scrollToSection);
+
+    return () => {
+      window.removeEventListener('hashchange', scrollToSection);
+    };
+  }, []);
+
   const specialties = [
     {
       icon: Heart,
@@ -231,7 +250,7 @@ function HomePage() {
               </div>
             </div>
 
-            <div>
+            <div id="consult">
               <FormSection
                 id="contact-form"
                 title="Book Your Consultation"
@@ -388,7 +407,7 @@ function HomePage() {
       </section>
 
       {/* Why Fortis Hospital */}
-      <section className="py-20 bg-gray-50">
+      <section id="Why" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -508,7 +527,7 @@ function HomePage() {
       </section>
 
       {/* Top Doctors */}
-      <section className="py-20 bg-gray-50">
+      <section id="doctors" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -600,10 +619,12 @@ function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <TestimonialsSection />
+      <div id="reviews">
+        <TestimonialsSection />
+      </div>
 
       {/* Special Offer Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
+      <section id="offer" className="py-20 bg-gradient-to-r from-orange-500 to-red-500 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-white bg-opacity-20 rounded-full px-6 py-2 mb-6">
