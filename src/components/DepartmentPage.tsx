@@ -726,6 +726,327 @@ const DepartmentPage = () => {
         </div>
       </section>
 
+      {/* Cardiology-specific SEO sections */}
+      {departmentData.id === 'cardiology' && (
+        <>
+          {/* Heart Bypass Surgery Cost in India */}
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                    Heart Bypass Surgery Cost in India
+                  </h2>
+                  <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+                    Apollo Hospital offers world-class heart bypass surgery (CABG) at a fraction of the cost compared to Western countries. Our transparent pricing includes comprehensive pre-operative assessment, surgery, post-operative care, and rehabilitation programs.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3" />
+                      <span className="text-gray-700">Transparent, all-inclusive pricing with no hidden costs</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3" />
+                      <span className="text-gray-700">Up to 70% savings compared to US and UK prices</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3" />
+                      <span className="text-gray-700">International insurance accepted for CABG surgery</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3" />
+                      <span className="text-gray-700">Flexible payment plans available for heart surgery</span>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() =>
+                      openFormPopup(
+                        "Get Heart Bypass Surgery Cost Estimate",
+                        "Receive detailed cost breakdown for CABG surgery in India"
+                      )
+                    }
+                    className="mt-8 bg-fortis-600 text-white py-3 px-8 rounded-lg font-semibold hover:bg-fortis-700 transition-all duration-300"
+                  >
+                    Get Cost Estimate
+                  </button>
+                </div>
+                <div className="bg-gradient-to-br from-fortis-50 to-secondary-50 p-8 rounded-2xl border border-gray-100">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    Why Choose India for Heart Surgery?
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="bg-white p-4 rounded-lg">
+                      <div className="text-3xl font-bold text-fortis-600 mb-2">70%</div>
+                      <p className="text-gray-600">Cost Savings vs Western Countries</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg">
+                      <div className="text-3xl font-bold text-fortis-600 mb-2">98%</div>
+                      <p className="text-gray-600">Success Rate for CABG Surgery</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg">
+                      <div className="text-3xl font-bold text-fortis-600 mb-2">JCI</div>
+                      <p className="text-gray-600">International Accreditation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Best Heart Surgeon in India */}
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                  Best Heart Surgeon in India
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Our cardiothoracic surgeons are internationally trained with decades of experience performing complex heart surgeries. They have successfully completed thousands of procedures with excellent outcomes.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white p-6 rounded-2xl shadow-lg">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-fortis-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Award className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Expert Credentials</h3>
+                  </div>
+                  <p className="text-gray-600 text-center">
+                    Board-certified cardiac surgeons with fellowships from top institutions in USA, UK, and Europe
+                  </p>
+                </div>
+                <div className="bg-white p-6 rounded-2xl shadow-lg">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-fortis-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Stethoscope className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">5000+ Surgeries</h3>
+                  </div>
+                  <p className="text-gray-600 text-center">
+                    Extensive experience in performing complex cardiac procedures including CABG, valve replacements, and transplants
+                  </p>
+                </div>
+                <div className="bg-white p-6 rounded-2xl shadow-lg">
+                  <div className="text-center mb-4">
+                    <div className="w-16 h-16 bg-fortis-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Shield className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">98% Success Rate</h3>
+                  </div>
+                  <p className="text-gray-600 text-center">
+                    Outstanding surgical outcomes with minimal complications and high patient satisfaction rates
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Heart Treatment in India & Heart Hospital in India */}
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-12">
+                <div>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                    Heart Treatment in India
+                  </h2>
+                  <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+                    India has become a global destination for advanced heart treatment, offering world-class cardiac care with cutting-edge technology and experienced specialists. Apollo Hospital leads in providing comprehensive cardiovascular services.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3 mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">Advanced Diagnostics</h4>
+                        <p className="text-gray-600">Cardiac CT, MRI, nuclear imaging, and stress testing</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3 mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">Minimally Invasive Procedures</h4>
+                        <p className="text-gray-600">Angioplasty, stenting, and catheter-based interventions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3 mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">Complex Cardiac Surgery</h4>
+                        <p className="text-gray-600">CABG, valve replacement, and heart transplantation</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                    Heart Hospital in India
+                  </h2>
+                  <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+                    Apollo Hospital is recognized as one of India's premier cardiac care centers, equipped with state-of-the-art facilities and a dedicated team of cardiovascular specialists committed to excellence.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3 mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">JCI & NABH Accredited</h4>
+                        <p className="text-gray-600">International quality and safety standards certification</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3 mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">24/7 Cardiac Emergency</h4>
+                        <p className="text-gray-600">Round-the-clock emergency cardiac care and intensive monitoring</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="w-6 h-6 text-fortis-600 mr-3 mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">Dedicated Cardiac Cath Labs</h4>
+                        <p className="text-gray-600">Multiple state-of-the-art catheterization laboratories</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Cardiac Treatment in India & Heart Bypass Surgery in India */}
+          <section className="py-20 bg-gradient-to-br from-fortis-50 to-secondary-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-12">
+                <div className="bg-white p-8 rounded-2xl shadow-lg">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    Cardiac Treatment in India
+                  </h2>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Comprehensive cardiac treatment programs at Apollo Hospital include preventive cardiology, interventional procedures, cardiac surgery, and rehabilitation services tailored to each patient's unique needs.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Coronary artery disease management</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Heart valve repair and replacement</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Arrhythmia treatment and pacemaker implantation</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Heart failure management programs</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Preventive cardiology and risk assessment</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-white p-8 rounded-2xl shadow-lg">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    Heart Bypass Surgery in India
+                  </h2>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    CABG (Coronary Artery Bypass Grafting) surgery at Apollo Hospital uses advanced techniques including off-pump and minimally invasive approaches, performed by India's most experienced cardiac surgeons.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Traditional CABG with heart-lung machine</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Off-pump (beating heart) bypass surgery</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Minimally invasive direct coronary artery bypass</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Robotic-assisted bypass procedures</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-fortis-600 rounded-full mr-3"></div>
+                      <span className="text-gray-700">Combined valve and bypass operations</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-12">
+                <button
+                  onClick={() =>
+                    openFormPopup(
+                      "Get Heart Surgery Consultation",
+                      "Connect with our cardiac surgery experts"
+                    )
+                  }
+                  className="bg-gradient-to-r from-fortis-600 to-secondary-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-fortis-700 hover:to-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Book Consultation
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Cost of Heart Surgery in India */}
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                  Cost of Heart Surgery in India
+                </h2>
+                <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
+                  Apollo Hospital provides transparent, affordable pricing for all cardiac procedures without compromising on quality. Our comprehensive packages include pre-operative tests, surgery, hospital stay, medications, and follow-up care.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="bg-gradient-to-br from-fortis-50 to-white p-6 rounded-2xl border border-gray-200">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">Angioplasty</h3>
+                  <p className="text-sm text-gray-600 mb-3">Single vessel stenting with drug-eluting stent</p>
+                  <div className="text-2xl font-bold text-fortis-600">$3,500+</div>
+                </div>
+                <div className="bg-gradient-to-br from-fortis-50 to-white p-6 rounded-2xl border border-gray-200">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">CABG Surgery</h3>
+                  <p className="text-sm text-gray-600 mb-3">Multiple vessel bypass surgery</p>
+                  <div className="text-2xl font-bold text-fortis-600">$6,500+</div>
+                </div>
+                <div className="bg-gradient-to-br from-fortis-50 to-white p-6 rounded-2xl border border-gray-200">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">Valve Replacement</h3>
+                  <p className="text-sm text-gray-600 mb-3">Single or double valve replacement</p>
+                  <div className="text-2xl font-bold text-fortis-600">$7,000+</div>
+                </div>
+                <div className="bg-gradient-to-br from-fortis-50 to-white p-6 rounded-2xl border border-gray-200">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">Pacemaker</h3>
+                  <p className="text-sm text-gray-600 mb-3">Pacemaker implantation procedure</p>
+                  <div className="text-2xl font-bold text-fortis-600">$4,000+</div>
+                </div>
+              </div>
+              <div className="mt-12 bg-secondary-50 p-8 rounded-2xl border border-secondary-200">
+                <div className="grid md:grid-cols-3 gap-8 text-center">
+                  <div>
+                    <div className="text-4xl font-bold text-fortis-600 mb-2">70%</div>
+                    <p className="text-gray-700 font-semibold">Lower than Western Countries</p>
+                  </div>
+                  <div>
+                    <div className="text-4xl font-bold text-fortis-600 mb-2">100%</div>
+                    <p className="text-gray-700 font-semibold">Transparent Pricing</p>
+                  </div>
+                  <div>
+                    <div className="text-4xl font-bold text-fortis-600 mb-2">0</div>
+                    <p className="text-gray-700 font-semibold">Hidden Costs</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
       {/* Amenities Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

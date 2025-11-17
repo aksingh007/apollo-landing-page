@@ -20,9 +20,9 @@ export const departments: Department[] = [
   {
     id: 'cardiology',
     name: 'Cardiology',
-    title: 'Cardiology Treatment',
+    title: 'Cardiology Treatment in India',
     icon: Heart,
-    heroTitle: 'Advanced Cardiology Treatment at Apollo Hospital',
+    heroTitle: 'Advanced Cardiology Treatment in India at Apollo Hospital',
     description: 'Best hospital for CABG in India with comprehensive heart care with cutting-edge technology, minimally invasive procedures, and personalized treatment plans for optimal cardiac health.',
     features: [
       'Advanced cardiac catheterization',
