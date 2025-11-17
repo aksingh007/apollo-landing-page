@@ -1,143 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { getDoctorsByDepartment } from "../data/doctors";
 
-const DoctorsCarousel = React.memo(() => {
+interface DoctorsCarouselProps {
+  department?: string;
+}
+
+const DoctorsCarousel = React.memo(({ department }: DoctorsCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // 768px is a common breakpoint for mobile
+      setIsMobile(window.innerWidth < 768);
     };
 
-    // Set initial value
     handleResize();
-
-    // Add event listener
     window.addEventListener("resize", handleResize);
 
-    // Clean up
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Helper function to calculate years of experience
-  function calculateExperience(startDate) {
-    const today = new Date();
-    let years = today.getFullYear() - startDate.getFullYear();
-    const monthDiff = today.getMonth() - startDate.getMonth();
-
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < startDate.getDate())
-    ) {
-      years--;
-    }
-
-    return years + "+";
-  }
-
-  const doctors = [
-    {
-      name: "Dr. K. K. Saxena",
-      specialty: "Interventional Cardiologist",
-      experience:
-        calculateExperience(new Date(1987, 7, 17)) + " Years Experience",
-      achievements: "Cardiology Pioneer",
-      rating: 4.9,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/771b2b48-cd26-4d34-a2bb-39dbe74da050/61ec1f8d-fd7d-400a-8cbd-f7601bdb09a4.jpg",
-    },
-    {
-      name: "Dr Bhaba Nanda Das",
-      specialty: "Cardiac Surgeon",
-      experience:
-        calculateExperience(new Date(1986, 7, 14)) + " Years Experience",
-      achievements: "Heart Surgery Specialist",
-      rating: 4.8,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/ac15f17a-e77c-4962-906b-38f97d204240/consult-dr-bhaba-nanda-das-best-cardiothoracic-surgeon-apollo-hospital-delhi.jpg",
-    },
-    {
-      name: "Dr. Anoop K.Ganjoo",
-      specialty: "Cardiac Surgeon",
-      experience:
-        calculateExperience(new Date(1996, 4, 6)) + " Years Experience",
-      achievements: "Cardiothoracic Surgery Expert",
-      rating: 4.7,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/955006f2-c2ff-487c-a206-9e674a1b7f52/dr-anoop-k-ganjoo-cardiothoracic-and-vascular-surgery-in-delhi.jpg",
-    },
-    {
-      name: "Dr. Sandeep Guleria",
-      specialty: "Transplant Surgery",
-      experience:
-        calculateExperience(new Date(1990, 7, 14)) + " Years Experience",
-      achievements: "Transplant Surgery Specialist",
-      rating: 4.9,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/b6724b48-db5c-4629-9f88-54ba3f34b9cb/file.png",
-    },
-    {
-      name: "Dr. Rajagopalan Krishnan",
-      specialty: "Spine Surgery",
-      experience:
-        calculateExperience(new Date(2000, 0, 2)) + " Years Experience",
-      achievements: "Spine Surgery Expert",
-      rating: 4.8,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/1d6524bf-7f7f-4450-8600-d531f39d9073/file.webp",
-    },
-    {
-      name: "Dr. Rajendra Prasad",
-      specialty: "Spine Surgery",
-      experience:
-        calculateExperience(new Date(1988, 0, 2)) + " Years Experience",
-      achievements: "Spinal Disorder Specialist",
-      rating: 4.7,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/22a5e7c2-678b-4c33-92aa-998b3d62ba22/file.webp",
-    },
-    {
-      name: "Dr. Ravi Bhatia",
-      specialty: "Spine Surgery",
-      experience:
-        calculateExperience(new Date(1975, 0, 2)) + " Years Experience",
-      achievements: "Spinal Reconstruction Expert",
-      rating: 4.9,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/4138bdf7-ec3d-4c6a-b762-dde74bbc3752/file.webp",
-    },
-    {
-      name: "Dr. Chander Shekar",
-      specialty: "Orthopedics Surgery",
-      experience:
-        calculateExperience(new Date(1998, 11, 13)) + " Years Experience",
-      achievements: "Joint Replacement Specialist",
-      rating: 4.8,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/f89b8982-02b8-43dd-958a-fa167b59d580/file.webp",
-    },
-    {
-      name: "Dr Harsh Rastogi",
-      specialty: "Radiology Department",
-      experience:
-        calculateExperience(new Date(1994, 11, 29)) + " Years Experience",
-      achievements: "Diagnostic Imaging Expert",
-      rating: 4.7,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/82cd691c-d18e-484f-8a65-e190bcfcb500/file.jpeg",
-    },
-    {
-      name: "Dr. Anshuman Agarwal",
-      specialty: "Urology",
-      experience:
-        calculateExperience(new Date(2002, 0, 15)) + " Years Experience",
-      achievements: "Urological Surgery Specialist",
-      rating: 4.9,
-      image:
-        "https://yapita-production.s3.ap-south-1.amazonaws.com/uploads/doctor/image/a92b1821-60dc-4f50-a4e7-f7d880dfecdf/file.webp",
-    },
-  ];
+  const doctors = getDoctorsByDepartment(department);
 
   const nextSlide = () => {
     if (isMobile) {

@@ -1092,7 +1092,7 @@ const DepartmentPage = () => {
           </div>
 
           <React.Suspense fallback={<SectionLoader />}>
-            <DoctorsCarousel />
+            <DoctorsCarousel department={departmentData.id} />
           </React.Suspense>
         </div>
       </section>

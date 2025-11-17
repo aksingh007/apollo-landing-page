@@ -538,7 +538,7 @@ function HomePage() {
             </p>
           </div>
 
-          <DoctorsCarousel />
+          <DoctorsCarousel department="default" />
         </div>
       </section>
 
